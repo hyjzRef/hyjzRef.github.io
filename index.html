@@ -5,13 +5,13 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://hyjzRef.github.io">
+  <link rel="dns-prefetch" href="http://hyjzref.github.io">
   <title>黑夜·镜子的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="愿尘世间全部相逢，皆以幸福共始终">
 <meta property="og:type" content="website">
 <meta property="og:title" content="黑夜·镜子的博客">
-<meta property="og:url" content="http://hyjzRef.github.io/index.html">
+<meta property="og:url" content="http://hyjzref.github.io/index.html">
 <meta property="og:site_name" content="黑夜·镜子的博客">
 <meta property="og:description" content="愿尘世间全部相逢，皆以幸福共始终">
 <meta name="twitter:card" content="summary">
@@ -137,6 +137,97 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-js" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/13/js/">[cocos]JavaScript基础</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/13/js/" class="archive-article-date">
+  	<time datetime="2017-05-13T12:11:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一-DOM、BOM和ECMAScript的关系"><a href="#一-DOM、BOM和ECMAScript的关系" class="headerlink" title="一. DOM、BOM和ECMAScript的关系"></a>一. DOM、BOM和ECMAScript的关系</h2><p>ECMAScript提供了js的语法和基本对象。</p>
+<p>DOM提供了可以处理html网页上所有元素的接口。</p>
+<p>BOM提供了与浏览器进行交互的方法和接口</p>
+<h2 id="二-EMCAScript"><a href="#二-EMCAScript" class="headerlink" title="二. EMCAScript"></a>二. EMCAScript</h2><p>EMCAScript作为js的核心，大部分语法与Java相似。以下着重于ES的特点：</p>
+<h3 id="数据类型细分为三类："><a href="#数据类型细分为三类：" class="headerlink" title="数据类型细分为三类："></a>数据类型细分为三类：</h3><p>基本类型：</p>
+<ul>
+<li>String：字符串，例如”xxx”</li>
+<li>Number：数字类型，es中Number既可以表示整数（32位或64位）也可以表示浮点数和八、十六进制数</li>
+<li>Boolean：布尔值，有两个值true和false</li>
+</ul>
+<p>特殊类型：</p>
+<ul>
+<li>Null：只有一个专用值null，表示不存在的<strong>对象</strong></li>
+<li>Undefined：同样只有一个专用值，即undefined，声明的变量未初始化<br>时默认值为undefined</li>
+</ul>
+<p>对象类型：</p>
+<ul>
+<li>Object、Array等</li>
+</ul>
+<h3 id="函数："><a href="#函数：" class="headerlink" title="函数："></a>函数：</h3><p>函数是es中非常重要的一部分，函数的<strong>基本语法</strong>是：</p>
+<pre><code>function functionName(arg0,arg1,...argN){
+    statements
+}
+</code></pre><p>函数有两种常见的<strong>声明方式</strong>：</p>
+<pre><code>// 正常方式：
+function sayHi(sName, sMessage) {
+  alert(&quot;Hello &quot; + sName + sMessage);
+}
+sayHi(&quot;John&quot;, &quot;Tom&quot;);
+
+// FUNCTION方式：
+var sayHi = 
+new Function(&quot;sName&quot;, &quot;sMessage&quot;, &quot;alert(\&quot;Hello \&quot; + sName + sMessage);&quot;);
+sayHi(&quot;John&quot;, &quot;Tom&quot;);
+</code></pre><p>在FUNCTION方式中，每个 arg 都是一个参数，最后一个参数是函数主体（要执行的代码）。这些参数必须是字符串。FUNCTION方式比正常方式要慢许多，一般考虑正常方式。</p>
+<p>可以看出，函数名只是指向函数对象的引用值，可以作为参数传递。甚至可以使两个变量指向同一个函数。</p>
+<p>因此可以得到js中的<strong>扩展函数</strong>，例如为Number扩展：</p>
+<pre><code>Number.prototype.toHexString = function() {
+  return this.toString(16);
+};
+在此环境中，关键字 this 指向 Number 的实例，因此可完全访问 Number 的所有方法。有了这段代码，可实现下面的操作：
+var iNum = 15;
+alert(iNum.toHexString());        //输出 &quot;F&quot;
+</code></pre><p>函数的<strong>参数</strong>：</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/13/js/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
   
     <article id="post-test-title" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
