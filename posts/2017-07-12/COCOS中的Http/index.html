@@ -6,19 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://hyjzref.github.io">
-  <title>[cocos]JavaScript基础 | 黑夜·镜子的博客</title>
+  <title>[cocos]Cocos中的Http扫盲学习 | 黑夜·镜子的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一. DOM、BOM和ECMAScript的关系ECMAScript提供了js的语法和基本对象。 DOM提供了可以处理html网页上所有元素的接口。 BOM提供了与浏览器进行交互的方法和接口">
+  <meta name="description" content="1 Http协议每一个HTTP包都分为HTTP头和HTTP体两部分，后者是可选的，而前者是必须的。Http头格式形如 Method Request-URI HTTP-Version CRLF  其中Method表示请求方法,一般为GET或POSTRequest-URI是一个统一资源标识符，用来唯一的标识一个资源HTTP-Version表示请求的HTTP协议版本CRLF表示回车和换行    2 G">
 <meta name="keywords" content="cocos">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[cocos]JavaScript基础">
-<meta property="og:url" content="http://hyjzref.github.io/posts/2017-05-13/js/index.html">
+<meta property="og:title" content="[cocos]Cocos中的Http扫盲学习">
+<meta property="og:url" content="http://hyjzref.github.io/posts/2017-07-12/COCOS中的Http/index.html">
 <meta property="og:site_name" content="黑夜·镜子的博客">
-<meta property="og:description" content="一. DOM、BOM和ECMAScript的关系ECMAScript提供了js的语法和基本对象。 DOM提供了可以处理html网页上所有元素的接口。 BOM提供了与浏览器进行交互的方法和接口">
-<meta property="og:updated_time" content="2017-07-12T16:04:31.961Z">
+<meta property="og:description" content="1 Http协议每一个HTTP包都分为HTTP头和HTTP体两部分，后者是可选的，而前者是必须的。Http头格式形如 Method Request-URI HTTP-Version CRLF  其中Method表示请求方法,一般为GET或POSTRequest-URI是一个统一资源标识符，用来唯一的标识一个资源HTTP-Version表示请求的HTTP协议版本CRLF表示回车和换行    2 G">
+<meta property="og:image" content="http://hyjzref.github.io/img/cocos/img_1.png">
+<meta property="og:updated_time" content="2017-07-12T16:20:58.255Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[cocos]JavaScript基础">
-<meta name="twitter:description" content="一. DOM、BOM和ECMAScript的关系ECMAScript提供了js的语法和基本对象。 DOM提供了可以处理html网页上所有元素的接口。 BOM提供了与浏览器进行交互的方法和接口">
+<meta name="twitter:title" content="[cocos]Cocos中的Http扫盲学习">
+<meta name="twitter:description" content="1 Http协议每一个HTTP包都分为HTTP头和HTTP体两部分，后者是可选的，而前者是必须的。Http头格式形如 Method Request-URI HTTP-Version CRLF  其中Method表示请求方法,一般为GET或POSTRequest-URI是一个统一资源标识符，用来唯一的标识一个资源HTTP-Version表示请求的HTTP协议版本CRLF表示回车和换行    2 G">
+<meta name="twitter:image" content="http://hyjzref.github.io/img/cocos/img_1.png">
   
     <link rel="alternative" href="/atom.xml" title="黑夜·镜子的博客" type="application/atom+xml">
   
@@ -146,72 +148,69 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-js" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-COCOS中的Http" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      [cocos]JavaScript基础
+      [cocos]Cocos中的Http扫盲学习
     </h1>
   
 
         
-        <a href="/posts/2017-05-13/js/" class="archive-article-date">
-  	<time datetime="2017-05-13T12:11:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-13</time>
+        <a href="/posts/2017-07-12/COCOS中的Http/" class="archive-article-date">
+  	<time datetime="2017-07-12T15:31:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一-DOM、BOM和ECMAScript的关系"><a href="#一-DOM、BOM和ECMAScript的关系" class="headerlink" title="一. DOM、BOM和ECMAScript的关系"></a>一. DOM、BOM和ECMAScript的关系</h2><p>ECMAScript提供了js的语法和基本对象。</p>
-<p>DOM提供了可以处理html网页上所有元素的接口。</p>
-<p>BOM提供了与浏览器进行交互的方法和接口</p>
-<a id="more"></a>
-<h2 id="二-EMCAScript"><a href="#二-EMCAScript" class="headerlink" title="二. EMCAScript"></a>二. EMCAScript</h2><p>EMCAScript作为js的核心，大部分语法与Java相似。以下着重于ES的特点：</p>
-<h3 id="数据类型细分为三类："><a href="#数据类型细分为三类：" class="headerlink" title="数据类型细分为三类："></a>数据类型细分为三类：</h3><p>基本类型：</p>
+        <hr>
+<h1 id="1-Http协议"><a href="#1-Http协议" class="headerlink" title="1 Http协议"></a>1 Http协议</h1><p>每一个HTTP包都分为HTTP头和HTTP体两部分，后者是可选的，而前者是必须的。Http头格式形如</p>
+<pre><code>Method Request-URI HTTP-Version CRLF 
+</code></pre><p>其中Method表示请求方法,一般为GET或POST<br>Request-URI是一个统一资源标识符，用来唯一的标识一个资源<br>HTTP-Version表示请求的HTTP协议版本<br>CRLF表示回车和换行  </p>
+<hr>
+<h1 id="2-GET与POST"><a href="#2-GET与POST" class="headerlink" title="2 GET与POST"></a>2 GET与POST</h1><a id="more"></a>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="/img/cocos/img_1.png" alt="img"></h2><h1 id="3-XMLHttpRequest对象"><a href="#3-XMLHttpRequest对象" class="headerlink" title="3 XMLHttpRequest对象"></a>3 XMLHttpRequest对象</h1><p>XMLHttpRequest对象是Ajax的Web应用程序架构的一项关键功能，它可以同步或异步返回服务器的响应，并且能以文本的形式返回内容。<br><strong>1 创建</strong><br>var xhr = cc.loader.getXMLHttpRequest();  </p>
+<p><strong>2 常用属性和函数</strong><br><strong>readyState属性</strong><br>用于获取xhr当前的状态，一般用来检测是否已经收到服务器的返回。<br>0：请求未初始化（还没有调用open方法）<br>1：请求已经建立，但是还没有发送（还没有调用sned方法）<br>2：请求已发送，正在处理中<br>3：请求在处理，相应中已有部分数据可用了<br>4：响应已完成，可以获取并使用服务器的响应  </p>
+<p><strong>status属性</strong><br>Http请求状态码，一般也用来检测服务器是否返回了正确的数据，常用的有。<br>200：一切正常，对GET和POST请求的应答文档跟在后面<br>301：客户请求的文档可以在多个位置找到，这些位置已经在返回的文档内列出。如果服务器要提出优先选择，则应该在Location应答头指明。<br>304：客户端有缓冲的文档并发出了一个条件性的请求（一般是提供If-Modified-Since头表示客户只想比指定日期更新的文档）。服务器告诉客户，原来缓冲的文档还可以继续使用。<br>404：无法找到指定位置的资源<br>500：服务器遇到了意料不到的情况，不能完成客户的请求  </p>
+<p><strong>response属性</strong><br>xhr.response  </p>
 <ul>
-<li>String：字符串，例如”xxx”</li>
-<li>Number：数字类型，es中Number既可以表示整数（32位或64位）也可以表示浮点数和八、十六进制数</li>
-<li>Boolean：布尔值，有两个值true和false</li>
+<li><p>当请求完成时，此属性才有正确的值</p>
+</li>
+<li><p>xhr.responseType有关：当responseType为””或”text”时，值为””；responseType为其他值时，值为 null  </p>
+</li>
 </ul>
-<p>特殊类型：</p>
+<p>xhr.responseText</p>
 <ul>
-<li>Null：只有一个专用值null，表示不存在的<strong>对象</strong></li>
-<li>Undefined：同样只有一个专用值，即undefined，声明的变量未初始化<br>时默认值为undefined</li>
+<li>只有当 responseType 为”text”、””时，xhr对象上才有此属性，此时才能调用xhr.responseText，否则抛错</li>
 </ul>
-<p>对象类型：</p>
 <ul>
-<li>Object、Array等</li>
+<li>只有当请求成功时，才能拿到正确值。以下2种情况下值都为空字符串””：请求未完成、请求失败  </li>
 </ul>
-<h3 id="函数："><a href="#函数：" class="headerlink" title="函数："></a>函数：</h3><p>函数是es中非常重要的一部分，函数的<strong>基本语法</strong>是：</p>
-<pre><code>function functionName(arg0,arg1,...argN){
-    statements
-}
-</code></pre><p>函数有两种常见的<strong>声明方式</strong>：</p>
-<pre><code>// 正常方式：
-function sayHi(sName, sMessage) {
-  alert(&quot;Hello &quot; + sName + sMessage);
-}
-sayHi(&quot;John&quot;, &quot;Tom&quot;);
-
-// FUNCTION方式：
-var sayHi = 
-new Function(&quot;sName&quot;, &quot;sMessage&quot;, &quot;alert(\&quot;Hello \&quot; + sName + sMessage);&quot;);
-sayHi(&quot;John&quot;, &quot;Tom&quot;);
-</code></pre><p>在FUNCTION方式中，每个 arg 都是一个参数，最后一个参数是函数主体（要执行的代码）。这些参数必须是字符串。FUNCTION方式比正常方式要慢许多，一般考虑正常方式。</p>
-<p>可以看出，函数名只是指向函数对象的引用值，可以作为参数传递。甚至可以使两个变量指向同一个函数。</p>
-<p>因此可以得到js中的<strong>扩展函数</strong>，例如为Number扩展：</p>
-<pre><code>Number.prototype.toHexString = function() {
-  return this.toString(16);
+<p><strong>onreadystatechange属性</strong><br>这个属性用于设置回调函数，当readyState改变时自动调用。  </p>
+<p><strong>open()函数</strong><br>open(method, url, asynch, username, password)<br>method：string，表示请求类型，一般为”GET”或”POST”<br>url：string，表示服务器端地址<br>asynch：boolean，表示是否使用异步连接，默认为true<br>user：string，如果需要用户名，通过该参数指定<br>password：string，如果需要密码，通过该参数指定  </p>
+<p><strong>send()函数</strong><br>调用该函数可以将构建好的请求发送到服务端，使用POST请求发送数据时要传入数据。  </p>
+<p><strong>setRequestHeader()函数</strong><br>setRequestHeader(header, value)<br>设置HTTP请求头中的指定头部header的值为value，此方法需在open方法以后调用  </p>
+<p><strong>abort()函数</strong><br>停止当前http请求，对应的XMLHttpRequest对象会复位到未初始化的状态</p>
+<p><strong>3 代码示例</strong>  </p>
+<pre><code>var req = cc.loader.getXMLHttpRequest();
+req.open(&quot;GET&quot;, configUrl);
+//设置表单中发送的数据编码为“名称/值”对
+req.setRequestHeader(&quot;Content-Type&quot;, &quot;application/x-www-form-urlencoded&quot;);
+req.onreadystatechange = function () {
+     if (req.readyState == 4 &amp;&amp; (req.status == 200 ||
+           req.status == 301 || req.status == 304)) {
+           ServerConfigClient.stopTimeOut();
+           cc.log(&quot;get server config success&quot;);
+           ServerConfigClient.onGetServerConfigReady(req.response);
+      }
 };
-在此环境中，关键字 this 指向 Number 的实例，因此可完全访问 Number 的所有方法。有了这段代码，可实现下面的操作：
-var iNum = 15;
-alert(iNum.toHexString());        //输出 &quot;F&quot;
-</code></pre><p>函数的<strong>参数</strong>：</p>
-
+req.send(&quot;&quot;);
+</code></pre>
       
 
       
@@ -280,7 +279,7 @@ alert(iNum.toHexString());        //输出 &quot;F&quot;
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://hyjzref.github.io/posts/2017-05-13/js/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://hyjzref.github.io/posts/2017-07-12/COCOS中的Http/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -294,15 +293,11 @@ alert(iNum.toHexString());        //输出 &quot;F&quot;
   
 <nav id="article-nav">
   
-    <a href="/posts/2017-06-20/声之形2/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          动画感想1 像硝子那样郑重、包容-《声之形》
-        
-      </div>
-    </a>
   
+    <a href="/posts/2017-06-20/声之形2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">动画感想1 像硝子那样郑重、包容-《声之形》</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
