@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://hyjzref.github.io">
-  <title>[cocos]Cocos中的Http扫盲学习 | 黑夜·镜子的博客</title>
+  <title>[Cocos] Cocos中的Http扫盲学习 | 黑夜·镜子的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1 Http协议每一个HTTP包都分为HTTP头和HTTP体两部分，后者是可选的，而前者是必须的。Http头格式形如 Method Request-URI HTTP-Version CRLF  其中Method表示请求方法,一般为GET或POSTRequest-URI是一个统一资源标识符，用来唯一的标识一个资源HTTP-Version表示请求的HTTP协议版本CRLF表示回车和换行    2 G">
+  <meta name="description" content="1 Http协议每一个HTTP包都分为HTTP头和HTTP体两部分，后者是可选的，而前者是必须的。Http头格式形如    Method Request-URI HTTP-Version CRLFMethod 表示请求方法,一般为GET或POSTRequest-URI 是一个统一资源标识符，用来唯一的标识一个资源HTTP-Version 表示请求的HTTP协议版本CRLF 表示回车和换行    2">
 <meta name="keywords" content="cocos">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[cocos]Cocos中的Http扫盲学习">
+<meta property="og:title" content="[Cocos] Cocos中的Http扫盲学习">
 <meta property="og:url" content="http://hyjzref.github.io/posts/2017-07-12/COCOS中的Http/index.html">
 <meta property="og:site_name" content="黑夜·镜子的博客">
-<meta property="og:description" content="1 Http协议每一个HTTP包都分为HTTP头和HTTP体两部分，后者是可选的，而前者是必须的。Http头格式形如 Method Request-URI HTTP-Version CRLF  其中Method表示请求方法,一般为GET或POSTRequest-URI是一个统一资源标识符，用来唯一的标识一个资源HTTP-Version表示请求的HTTP协议版本CRLF表示回车和换行    2 G">
+<meta property="og:description" content="1 Http协议每一个HTTP包都分为HTTP头和HTTP体两部分，后者是可选的，而前者是必须的。Http头格式形如    Method Request-URI HTTP-Version CRLFMethod 表示请求方法,一般为GET或POSTRequest-URI 是一个统一资源标识符，用来唯一的标识一个资源HTTP-Version 表示请求的HTTP协议版本CRLF 表示回车和换行    2">
 <meta property="og:image" content="http://hyjzref.github.io/img/cocos/img_1.png">
-<meta property="og:updated_time" content="2017-07-12T16:20:58.255Z">
+<meta property="og:updated_time" content="2017-07-16T14:01:50.710Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[cocos]Cocos中的Http扫盲学习">
-<meta name="twitter:description" content="1 Http协议每一个HTTP包都分为HTTP头和HTTP体两部分，后者是可选的，而前者是必须的。Http头格式形如 Method Request-URI HTTP-Version CRLF  其中Method表示请求方法,一般为GET或POSTRequest-URI是一个统一资源标识符，用来唯一的标识一个资源HTTP-Version表示请求的HTTP协议版本CRLF表示回车和换行    2 G">
+<meta name="twitter:title" content="[Cocos] Cocos中的Http扫盲学习">
+<meta name="twitter:description" content="1 Http协议每一个HTTP包都分为HTTP头和HTTP体两部分，后者是可选的，而前者是必须的。Http头格式形如    Method Request-URI HTTP-Version CRLFMethod 表示请求方法,一般为GET或POSTRequest-URI 是一个统一资源标识符，用来唯一的标识一个资源HTTP-Version 表示请求的HTTP协议版本CRLF 表示回车和换行    2">
 <meta name="twitter:image" content="http://hyjzref.github.io/img/cocos/img_1.png">
   
     <link rel="alternative" href="/atom.xml" title="黑夜·镜子的博客" type="application/atom+xml">
@@ -155,7 +155,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      [cocos]Cocos中的Http扫盲学习
+      [Cocos] Cocos中的Http扫盲学习
     </h1>
   
 
@@ -168,31 +168,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h1 id="1-Http协议"><a href="#1-Http协议" class="headerlink" title="1 Http协议"></a>1 Http协议</h1><p>每一个HTTP包都分为HTTP头和HTTP体两部分，后者是可选的，而前者是必须的。Http头格式形如</p>
-<pre><code>Method Request-URI HTTP-Version CRLF 
-</code></pre><p>其中Method表示请求方法,一般为GET或POST<br>Request-URI是一个统一资源标识符，用来唯一的标识一个资源<br>HTTP-Version表示请求的HTTP协议版本<br>CRLF表示回车和换行  </p>
+        <h2 id="1-Http协议"><a href="#1-Http协议" class="headerlink" title="1 Http协议"></a>1 Http协议</h2><p>每一个HTTP包都分为HTTP头和HTTP体两部分，后者是可选的，而前者是必须的。Http头格式形如<br>    <code>Method Request-URI HTTP-Version CRLF</code><br><strong>Method</strong> 表示请求方法,一般为GET或POST<br><strong>Request-URI</strong> 是一个统一资源标识符，用来唯一的标识一个资源<br><strong>HTTP-Version</strong> 表示请求的HTTP协议版本<br><strong>CRLF</strong> 表示回车和换行  </p>
 <hr>
-<h1 id="2-GET与POST"><a href="#2-GET与POST" class="headerlink" title="2 GET与POST"></a>2 GET与POST</h1><a id="more"></a>
-<h2 id=""><a href="#" class="headerlink" title=""></a><img src="/img/cocos/img_1.png" alt="img"></h2><h1 id="3-XMLHttpRequest对象"><a href="#3-XMLHttpRequest对象" class="headerlink" title="3 XMLHttpRequest对象"></a>3 XMLHttpRequest对象</h1><p>XMLHttpRequest对象是Ajax的Web应用程序架构的一项关键功能，它可以同步或异步返回服务器的响应，并且能以文本的形式返回内容。<br><strong>1 创建</strong><br>var xhr = cc.loader.getXMLHttpRequest();  </p>
-<p><strong>2 常用属性和函数</strong><br><strong>readyState属性</strong><br>用于获取xhr当前的状态，一般用来检测是否已经收到服务器的返回。<br>0：请求未初始化（还没有调用open方法）<br>1：请求已经建立，但是还没有发送（还没有调用sned方法）<br>2：请求已发送，正在处理中<br>3：请求在处理，相应中已有部分数据可用了<br>4：响应已完成，可以获取并使用服务器的响应  </p>
-<p><strong>status属性</strong><br>Http请求状态码，一般也用来检测服务器是否返回了正确的数据，常用的有。<br>200：一切正常，对GET和POST请求的应答文档跟在后面<br>301：客户请求的文档可以在多个位置找到，这些位置已经在返回的文档内列出。如果服务器要提出优先选择，则应该在Location应答头指明。<br>304：客户端有缓冲的文档并发出了一个条件性的请求（一般是提供If-Modified-Since头表示客户只想比指定日期更新的文档）。服务器告诉客户，原来缓冲的文档还可以继续使用。<br>404：无法找到指定位置的资源<br>500：服务器遇到了意料不到的情况，不能完成客户的请求  </p>
-<p><strong>response属性</strong><br>xhr.response  </p>
-<ul>
-<li><p>当请求完成时，此属性才有正确的值</p>
-</li>
-<li><p>xhr.responseType有关：当responseType为””或”text”时，值为””；responseType为其他值时，值为 null  </p>
-</li>
-</ul>
-<p>xhr.responseText</p>
-<ul>
-<li>只有当 responseType 为”text”、””时，xhr对象上才有此属性，此时才能调用xhr.responseText，否则抛错</li>
-</ul>
-<ul>
-<li>只有当请求成功时，才能拿到正确值。以下2种情况下值都为空字符串””：请求未完成、请求失败  </li>
-</ul>
+<h2 id="2-GET与POST请求"><a href="#2-GET与POST请求" class="headerlink" title="2 GET与POST请求"></a>2 GET与POST请求</h2><a id="more"></a>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="/img/cocos/img_1.png" alt="img"></h2><h2 id="3-XMLHttpRequest对象"><a href="#3-XMLHttpRequest对象" class="headerlink" title="3 XMLHttpRequest对象"></a>3 XMLHttpRequest对象</h2><p>XMLHttpRequest对象是Ajax的Web应用程序架构的一项关键功能，它可以同步或异步返回服务器的响应，并且能以文本的形式返回内容。<br><strong>1 创建</strong><br><code>var xhr = cc.loader.getXMLHttpRequest();</code><br>在Cocos中通过getXMLHttpRequest()可以获得一个xhr对象。</p>
+<p><strong>2 常用属性和函数</strong><br><strong>readyState属性</strong><br>用于获取xhr当前的状态，一般用来检测是否已经收到服务器的返回。<br>0：请求<strong>未初始化</strong>（还没有调用open方法）。<br>1：请求<strong>已经建立</strong>，但是还没有发送（还没有调用sned方法）。<br>2：请求<strong>已发送</strong>，正在处理中。<br>3：请求<strong>在处理中</strong>，相应中已有部分数据可用了。<br>4：响应<strong>已完成</strong>，可以获取并使用服务器的响应。  </p>
+<p><strong>status属性</strong><br>Http请求状态码，一般也用来检测服务器是否返回了正确的数据，常用的有。<br>200：一切正常，对GET和POST请求的应答文档跟在后面。<br>301：客户请求的文档可以在多个位置找到，这些位置已经在返回的文档内列出。如果服务器要提出优先选择，则应该在Location应答头指明。<br>304：客户端有缓冲的文档并发出了一个条件性的请求（一般是提供If-Modified-Since头表示客户只想比指定日期更新的文档）。服务器告诉客户，原来缓冲的文档还可以继续使用。<br>404：无法找到指定位置的资源。<br>500：服务器遇到了意料不到的情况，不能完成客户的请求。  </p>
+<p><strong>response属性</strong><br>包含response属性和responseText属性<br>xhr.response<br>1.当请求完成时，此属性才有正确的值。<br>2.xhr.responseType有关：当responseType为””或”text”时，值为””；responseType为其他值时，值为 null。  </p>
+<p>xhr.responseText<br>1.只有当 responseType 为”text”、””时，xhr对象上才有此属性，此时才能调用xhr.responseText，否则抛错。<br>2.只有当请求成功时，才能拿到正确值。以下2种情况下值都为空字符串””：请求未完成、请求失败。  </p>
 <p><strong>onreadystatechange属性</strong><br>这个属性用于设置回调函数，当readyState改变时自动调用。  </p>
-<p><strong>open()函数</strong><br>open(method, url, asynch, username, password)<br>method：string，表示请求类型，一般为”GET”或”POST”<br>url：string，表示服务器端地址<br>asynch：boolean，表示是否使用异步连接，默认为true<br>user：string，如果需要用户名，通过该参数指定<br>password：string，如果需要密码，通过该参数指定  </p>
+<p><strong>open()函数</strong><br>open(method, url, asynch, username, password)<br><strong>method</strong>：string，表示请求类型，一般为”GET”或”POST”<br><strong>url</strong>：string，表示服务器端地址<br><strong>asynch</strong>：boolean，表示是否使用异步连接，默认为true<br><strong>user</strong>：string，如果需要用户名，通过该参数指定<br><strong>password</strong>：string，如果需要密码，通过该参数指定  </p>
 <p><strong>send()函数</strong><br>调用该函数可以将构建好的请求发送到服务端，使用POST请求发送数据时要传入数据。  </p>
 <p><strong>setRequestHeader()函数</strong><br>setRequestHeader(header, value)<br>设置HTTP请求头中的指定头部header的值为value，此方法需在open方法以后调用  </p>
 <p><strong>abort()函数</strong><br>停止当前http请求，对应的XMLHttpRequest对象会复位到未初始化的状态</p>
@@ -201,6 +186,7 @@
 req.open(&quot;GET&quot;, configUrl);
 //设置表单中发送的数据编码为“名称/值”对
 req.setRequestHeader(&quot;Content-Type&quot;, &quot;application/x-www-form-urlencoded&quot;);
+
 req.onreadystatechange = function () {
      if (req.readyState == 4 &amp;&amp; (req.status == 200 ||
            req.status == 301 || req.status == 304)) {
@@ -209,6 +195,7 @@ req.onreadystatechange = function () {
            ServerConfigClient.onGetServerConfigReady(req.response);
       }
 };
+
 req.send(&quot;&quot;);
 </code></pre>
       
@@ -303,7 +290,7 @@ req.send(&quot;&quot;);
     </a>
   
   
-    <a href="/posts/2017-06-20/声之形2/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/posts/2017-06-20/声之形/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">动画感想1 像硝子那样郑重、包容-《声之形》</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -433,7 +420,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">动漫</a>
+                <a href="javascript:void(0)" class="js-tag color4">动漫感想 声之形 西宫硝子</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动漫感想</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">声之形</a>
               </li>
             
             <div class="clearfix"></div>
