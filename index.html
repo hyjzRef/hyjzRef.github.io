@@ -146,6 +146,67 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-cocos2dx-js 3.12 绑定技术浅探" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/2017-09-28/cocos2dx-js 3.12 绑定技术浅探/">[Cocos] cocos2dx-js 3.12 绑定技术浅探</a>
+    </h1>
+  
+
+        
+        <a href="/posts/2017-09-28/cocos2dx-js 3.12 绑定技术浅探/" class="archive-article-date">
+  	<time datetime="2017-09-28T14:51:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <font face="黑体"><br>研究项目代码的时候，发现很多时候大佬的代码一直有一个很神秘的函数调用，这个函数看不到在哪定义也找不到实现。偶然间接触到 JSB(JavaScript Binding) 才恍然大悟。<br>JSB 大概的说是将 JS 与 C++ 绑定起来的通道，感觉摸到了点 JSB 的门道，笔记笔记~<br><strong>1.JS 引擎的脚本绑定框架</strong><br>要了解绑定过程就必须先了解 JS 绑定框架。如图 JS 脚本绑定框架可以分为三层，最底层是 C++ 编写的Cocos2d-x 游戏引擎；往上一层是 JS 引擎 SpiderMonkey 和 JSB 绑定技术，JSB 可以由三部分组成，分别是自动绑定、手动绑定和纯脚本绑定；最高层才是 JS 的 API 和逻辑代码。<br><br><img src="/img/cocos/img_2.png" alt="img"><br><br><strong>2.自动绑定的过程</strong><br>Cocos2dx-js 引擎提供的底层 C++ 代码的调用绝大部分都是通过自动绑定技术实现的，所以要看底层源码
+        
+          <a class="article-more-a" href="/posts/2017-09-28/cocos2dx-js 3.12 绑定技术浅探/#more">继续阅读 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">cocos</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/posts/2017-09-28/cocos2dx-js 3.12 绑定技术浅探/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-cocos2dx-js 3.12 热更新原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -166,7 +227,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <font face="黑体"><br>这几天终于有时间和精力整理一下自己这段时间的收获了，不得不说cocos里的坑点确实有一些，有时候出问题会怀疑这特么是不是引擎的BUG。<br>总结一下在项目中应用到的热更新的原理，供自己以后回顾。<br><br>1.cocos2d-x提供了AssetsManagerEx类<br><br>为了有个整体概念，我们首先来复习一下大纲~。<br>假设服务器已经有一个新的版本，一个理想中的热更新流程应该是：<br>1.下载 version.manifest 文件与本地 version.manifest 文件对比后发现需要进行更新，然后再去下载 detail.manifest 文件同样发现需要进行更新，然后开始下载资源；<br>2.依次下载 assets 字段中有修改或新增的资源，下载完成开始后续处理；<br>3.将下载的远程 .manifest 文件替换本地 .manifest 文件，解压所有的资源文件，热更新完成。<br>————————————————————————<br>在cocos2d-x 3.12中提供给我们开发者们AssetsManagerEx类来进行自动更新的逻辑控制，在 jsb_cocos2dx_extension_auto_api.js 中可以发现对应 js 中
+        <font face="黑体"><br>这几天终于有时间和精力整理一下自己这段时间的收获了，不得不说 cocos 里的坑点确实有一些，有时候出问题会怀疑这特么是不是引擎的 BUG。<br>总结一下在项目中应用到的热更新的原理，供自己以后回顾。<br><br>1. cocos2d-x 提供了 AssetsManagerEx 类<br><br>为了有个整体概念，我们首先来复习一下大纲~。<br>假设服务器已经有一个新的版本，一个理想中的热更新流程应该是：<br>1.下载 version.manifest 文件与本地 version.manifest 文件对比后发现需要进行更新，然后再去下载 detail.manifest 文件同样发现需要进行更新，然后开始下载资源；<br>2.依次下载 assets 字段中有修改或新增的资源，下载完成开始后续处理；<br>3.将下载的远程 .manifest 文件替换本地 .manifest 文件，解压所有的资源文件，热更新完成。<br>————————————————————————<br>在cocos2d-x 3.12中提供给我们开发者们 AssetsManagerEx 类来进行自动更新的逻辑控制，在 jsb_cocos2dx_extension_auto_api.js 中可以发现对应 js 中
         
           <a class="article-more-a" href="/posts/2017-09-25/cocos2dx-js 3.12 热更新原理/#more">继续阅读 >></a>
         
@@ -193,67 +254,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/posts/2017-09-25/cocos2dx-js 3.12 热更新原理/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-自由之战—开端" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/2017-09-10/自由之战—开端/">自由之战 开端</a>
-    </h1>
-  
-
-        
-        <a href="/posts/2017-09-10/自由之战—开端/" class="archive-article-date">
-  	<time datetime="2017-09-10T09:54:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <font face="黑体"><br>给曾经努力过的自己致歉 ：<br><br>首先我对于我这段时间的没有更新以及这段时间的懒散行为表示发自内心的<strong>深恶痛绝</strong>。这两个月我感到异常的空虚，哪怕是工作、游戏、睡觉这份空虚都挥之不去，直到今天下午我才决定要 彻彻底底 放弃这种空虚，丢弃懒散的行为，拼尽全力去实现自己想去做的事。对不起，今后我会全力认真的做好自己。<br>
-        
-          <a class="article-more-a" href="/posts/2017-09-10/自由之战—开端/#more">继续阅读 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">自由之战</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/posts/2017-09-10/自由之战—开端/">展开全文 >></a>
         </p>
       
 
@@ -777,6 +777,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大护法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">声之形</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">摘抄</a>
               </li>
              
@@ -786,18 +794,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">禅语</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">声之形</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大护法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">自由之战</a>
               </li>
             
             <div class="clearfix"></div>

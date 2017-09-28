@@ -6,17 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://hyjzref.github.io">
-  <title>Tag: 大护法 | 黑夜·镜子的博客</title>
+  <title>[Cocos] cocos2dx-js 3.12 绑定技术浅探 | 黑夜·镜子的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="愿尘世间全部相逢，皆以幸福共始终">
-<meta property="og:type" content="website">
-<meta property="og:title" content="黑夜·镜子的博客">
-<meta property="og:url" content="http://hyjzref.github.io/tags/大护法/index.html">
+  <meta name="description" content="研究项目代码的时候，发现很多时候大佬的代码一直有一个很神秘的函数调用，这个函数看不到在哪定义也找不到实现。偶然间接触到 JSB(JavaScript Binding) 才恍然大悟。JSB 大概的说是将 JS 与 C++ 绑定起来的通道，感觉摸到了点 JSB 的门道，笔记笔记~1.JS 引擎的脚本绑定框架要了解绑定过程就必须先了解 JS 绑定框架。如图 JS 脚本绑定框架可以分为三层，最底层是 C+">
+<meta name="keywords" content="cocos">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Cocos] cocos2dx-js 3.12 绑定技术浅探">
+<meta property="og:url" content="http://hyjzref.github.io/posts/2017-09-28/cocos2dx-js 3.12 绑定技术浅探/index.html">
 <meta property="og:site_name" content="黑夜·镜子的博客">
-<meta property="og:description" content="愿尘世间全部相逢，皆以幸福共始终">
+<meta property="og:description" content="研究项目代码的时候，发现很多时候大佬的代码一直有一个很神秘的函数调用，这个函数看不到在哪定义也找不到实现。偶然间接触到 JSB(JavaScript Binding) 才恍然大悟。JSB 大概的说是将 JS 与 C++ 绑定起来的通道，感觉摸到了点 JSB 的门道，笔记笔记~1.JS 引擎的脚本绑定框架要了解绑定过程就必须先了解 JS 绑定框架。如图 JS 脚本绑定框架可以分为三层，最底层是 C+">
+<meta property="og:image" content="http://hyjzref.github.io/img/cocos/img_2.png">
+<meta property="og:updated_time" content="2017-09-28T16:33:59.217Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="黑夜·镜子的博客">
-<meta name="twitter:description" content="愿尘世间全部相逢，皆以幸福共始终">
+<meta name="twitter:title" content="[Cocos] cocos2dx-js 3.12 绑定技术浅探">
+<meta name="twitter:description" content="研究项目代码的时候，发现很多时候大佬的代码一直有一个很神秘的函数调用，这个函数看不到在哪定义也找不到实现。偶然间接触到 JSB(JavaScript Binding) 才恍然大悟。JSB 大概的说是将 JS 与 C++ 绑定起来的通道，感觉摸到了点 JSB 的门道，笔记笔记~1.JS 引擎的脚本绑定框架要了解绑定过程就必须先了解 JS 绑定框架。如图 JS 脚本绑定框架可以分为三层，最底层是 C+">
+<meta name="twitter:image" content="http://hyjzref.github.io/img/cocos/img_2.png">
   
     <link rel="alternative" href="/atom.xml" title="黑夜·镜子的博客" type="application/atom+xml">
   
@@ -144,64 +148,128 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-cocos2dx-js 3.12 绑定技术浅探" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/posts/2017-07-23/大护法中的一些感想/" class="archive-article-date">
-  	<time datetime="2017-07-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-23</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/posts/2017-07-23/大护法中的一些感想/">动画感想2 大护法中的一些感想-《大护法》</a>
+    <h1 class="article-title" itemprop="name">
+      [Cocos] cocos2dx-js 3.12 绑定技术浅探
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/posts/2017-09-28/cocos2dx-js 3.12 绑定技术浅探/" class="archive-article-date">
+  	<time datetime="2017-09-28T14:51:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <font face="黑体"><br>研究项目代码的时候，发现很多时候大佬的代码一直有一个很神秘的函数调用，这个函数看不到在哪定义也找不到实现。偶然间接触到 JSB(JavaScript Binding) 才恍然大悟。<br>JSB 大概的说是将 JS 与 C++ 绑定起来的通道，感觉摸到了点 JSB 的门道，笔记笔记~<br><strong>1.JS 引擎的脚本绑定框架</strong><br>要了解绑定过程就必须先了解 JS 绑定框架。如图 JS 脚本绑定框架可以分为三层，最底层是 C++ 编写的Cocos2d-x 游戏引擎；往上一层是 JS 引擎 SpiderMonkey 和 JSB 绑定技术，JSB 可以由三部分组成，分别是自动绑定、手动绑定和纯脚本绑定；最高层才是 JS 的 API 和逻辑代码。<br><br><img src="/img/cocos/img_2.png" alt="img"><br><br><strong>2.自动绑定的过程</strong><br>Cocos2dx-js 引擎提供的底层 C++ 代码的调用绝大部分都是通过自动绑定技术实现的，所以要看底层源码<a id="more"></a>还是得了解一下自动绑定。<br>1.)函数注册<br>第一步需要在 AppDelegate.cpp 中的 applicationDidFinishLaunching 函数中进行函数注册，将 C++ 代码注册到 JS 引擎，JS 调用代码时会转换调用对应绑定的 C++ 代码，这里注册了各种类库。<br>2.)函数绑定<br>第二步是将 C++ 函数绑定 JS 函数，在 frameworks\cocos2d-x\cocos\scripting\js-bindings\auto 目录下绑定了诸多函数。例如<br> jsb_cocos2dx_extension_auto.cpp 中就会有<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">static JSFunctionSpec funcs[] = &#123;</div><div class="line">       JS_FN(<span class="string">"setEnabled"</span>, js_cocos2dx_extension_Control_setEnabled, <span class="number">1</span>, JSPROP_PERMANENT <span class="string">| JSPROP_ENUMERATE),</span></div><div class="line">       JS_FN(<span class="string">"getState"</span>, js_cocos2dx_extension_Control_getState, <span class="number">0</span>, JSPROP_PERMANENT <span class="string">| JSPROP_ENUMERATE),</span></div><div class="line">       JS_FN(<span class="string">"sendActionsForControlEvents"</span>, js_cocos2dx_extension_Control_sendActionsForControlEvents, <span class="number">1</span>, JSPROP_PERMANENT <span class="string">| JSPROP_ENUMERATE),</span></div><div class="line">       JS_FN(<span class="string">"setSelected"</span>, js_cocos2dx_extension_Control_setSelected, <span class="number">1</span>, JSPROP_PERMANENT <span class="string">| JSPROP_ENUMERATE),</span></div><div class="line">       JS_FN(<span class="string">"isEnabled"</span>, js_cocos2dx_extension_Control_isEnabled, <span class="number">0</span>, JSPROP_PERMANENT <span class="string">| JSPROP_ENUMERATE),</span></div><div class="line">       JS_FN(<span class="string">"needsLayout"</span>, js_cocos2dx_extension_Control_needsLayout, <span class="number">0</span>, JSPROP_PERMANENT <span class="string">| JSPROP_ENUMERATE),</span></div><div class="line">       JS_FN(<span class="string">"hasVisibleParents"</span>, js_cocos2dx_extension_Control_hasVisibleParents, <span class="number">0</span>, JSPROP_PERMANENT <span class="string">| JSPROP_ENUMERATE),</span></div><div class="line">       JS_FN(<span class="string">"isSelected"</span>, js_cocos2dx_extension_Control_isSelected, <span class="number">0</span>, JSPROP_PERMANENT <span class="string">| JSPROP_ENUMERATE),</span></div><div class="line">       JS_FN(<span class="string">"isTouchInside"</span>, js_cocos2dx_extension_Control_isTouchInside, <span class="number">1</span>, JSPROP_PERMANENT <span class="string">| JSPROP_ENUMERATE),</span></div><div class="line">       JS_FN(<span class="string">"setHighlighted"</span>, js_cocos2dx_extension_Control_setHighlighted, <span class="number">1</span>, JSPROP_PERMANENT <span class="string">| JSPROP_ENUMERATE),</span></div><div class="line">       JS_FN(<span class="string">"getTouchLocation"</span>, js_cocos2dx_extension_Control_getTouchLocation, <span class="number">1</span>, JSPROP_PERMANENT <span class="string">| JSPROP_ENUMERATE),</span></div><div class="line">       JS_FN(<span class="string">"isHighlighted"</span>, js_cocos2dx_extension_Control_isHighlighted, <span class="number">0</span>, JSPROP_PERMANENT <span class="string">| JSPROP_ENUMERATE),</span></div><div class="line">       JS_FS_END</div><div class="line">   &#125;;</div><div class="line"><span class="comment">// JS_FN中参数分别为JS函数名，C++函数名，参数个数，访问特性</span></div></pre></td></tr></table></figure><br><br>3.)C++的实现代码<br>最后，一般在,cpp文件中找到实现代码。比方说 2 中的 setEnabled 函数的实现代码就能在 jsb_cocos2dx_extension_auto.cpp 中找到。<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">bool </span><span class="keyword">js_cocos2dx_extension_Control_setEnabled(JSContext </span>*cx, uint32_t argc, <span class="keyword">jsval </span>*vp)</div><div class="line">&#123;</div><div class="line"><span class="symbol">    JS:</span>:CallArgs args = <span class="keyword">JS::CallArgsFromVp(argc, </span>vp)<span class="comment">;</span></div><div class="line">    <span class="keyword">bool </span>ok = true<span class="comment">;</span></div><div class="line"><span class="symbol">    JS:</span>:RootedObject obj(cx, args.thisv().toObjectOrNull())<span class="comment">;</span></div><div class="line">    <span class="keyword">js_proxy_t </span>*proxy = <span class="keyword">jsb_get_js_proxy(obj);</span></div><div class="line"><span class="symbol">    cocos2d:</span>:<span class="keyword">extension::Control* </span>cobj = (cocos2d::<span class="keyword">extension::Control </span>*)(proxy ? proxy-&gt;ptr : NULL)<span class="comment">;</span></div><div class="line">    <span class="keyword">JSB_PRECONDITION2( </span>cobj, cx, false, <span class="string">"js_cocos2dx_extension_Control_setEnabled : Invalid Native Object"</span>)<span class="comment">;</span></div><div class="line">    if (argc == <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">bool </span>arg0<span class="comment">;</span></div><div class="line">        arg0 = <span class="keyword">JS::ToBoolean(args.get(0));</span></div><div class="line">        <span class="keyword">JSB_PRECONDITION2(ok, </span>cx, false, <span class="string">"js_cocos2dx_extension_Control_setEnabled : Error processing arguments"</span>)<span class="comment">;</span></div><div class="line">        cobj-&gt;setEnabled(arg0)<span class="comment">;</span></div><div class="line">        args.rval().setUndefined()<span class="comment">;</span></div><div class="line">        return true<span class="comment">;</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">JS_ReportError(cx, </span><span class="string">"js_cocos2dx_extension_Control_setEnabled : wrong number of arguments: %d, was expecting %d"</span>, argc, <span class="number">1</span>)<span class="comment">;</span></div><div class="line">    return false<span class="comment">;</span></div><div class="line">&#125;</div></pre></td></tr></table></figure><br><br><strong>3.深入研究的方向</strong><br>这里作为扩展加分项，以后有需要再进行研究。例如：<br>● Andriod.mk 中会包含所有需要参与编译的 .cpp 文件；<br>● 以及绑定时的转换规则可能需要修改,类型转换、命名空间转换什么的。详见 <a href="">http://blog.csdn.net/jianglong0156/article/details/45896341</a><br></font>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">感想</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大护法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">cocos</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://hyjzref.github.io/posts/2017-09-28/cocos2dx-js 3.12 绑定技术浅探/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/posts/2017-09-25/cocos2dx-js 3.12 热更新原理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">[Cocos] cocos2dx-js 3.12 热更新原理</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -229,9 +297,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
