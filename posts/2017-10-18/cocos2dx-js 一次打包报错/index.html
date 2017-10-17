@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://hyjzref.github.io">
-  <title>Tag: 摘抄 | 黑夜·镜子的博客</title>
+  <title>[Cocos] make.exe: *** No rule to make target 错误原因与解决方案 | 黑夜·镜子的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="愿尘世间全部相逢，皆以幸福共始终">
-<meta property="og:type" content="website">
-<meta property="og:title" content="黑夜·镜子的博客">
-<meta property="og:url" content="http://hyjzref.github.io/tags/摘抄/index.html">
+  <meta name="description" content="记一次 cocos2dx-js Android 打包报错。将能够正确打包的 HelloWorld 工程拷贝到家里的电脑，确保配好环境之后打包的时候报错了，错误信息如下：make.exe: * No rule to make target ‘xxx.cpp’,need ‘xxx.o’ 错误原因：因为工程的路径发生改变，比如E盘移到了D盘，或是像我这样更换了电脑。而之前打包生成的 .o 静态库文件并不">
+<meta name="keywords" content="cocos">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Cocos] make.exe: *** No rule to make target 错误原因与解决方案">
+<meta property="og:url" content="http://hyjzref.github.io/posts/2017-10-18/cocos2dx-js 一次打包报错/index.html">
 <meta property="og:site_name" content="黑夜·镜子的博客">
-<meta property="og:description" content="愿尘世间全部相逢，皆以幸福共始终">
+<meta property="og:description" content="记一次 cocos2dx-js Android 打包报错。将能够正确打包的 HelloWorld 工程拷贝到家里的电脑，确保配好环境之后打包的时候报错了，错误信息如下：make.exe: * No rule to make target ‘xxx.cpp’,need ‘xxx.o’ 错误原因：因为工程的路径发生改变，比如E盘移到了D盘，或是像我这样更换了电脑。而之前打包生成的 .o 静态库文件并不">
+<meta property="og:updated_time" content="2017-10-17T16:28:39.927Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="黑夜·镜子的博客">
-<meta name="twitter:description" content="愿尘世间全部相逢，皆以幸福共始终">
+<meta name="twitter:title" content="[Cocos] make.exe: *** No rule to make target 错误原因与解决方案">
+<meta name="twitter:description" content="记一次 cocos2dx-js Android 打包报错。将能够正确打包的 HelloWorld 工程拷贝到家里的电脑，确保配好环境之后打包的时候报错了，错误信息如下：make.exe: * No rule to make target ‘xxx.cpp’,need ‘xxx.o’ 错误原因：因为工程的路径发生改变，比如E盘移到了D盘，或是像我这样更换了电脑。而之前打包生成的 .o 静态库文件并不">
   
     <link rel="alternative" href="/atom.xml" title="黑夜·镜子的博客" type="application/atom+xml">
   
@@ -144,68 +146,128 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-cocos2dx-js 一次打包报错" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/posts/2017-07-16/一曲云水释禅心/" class="archive-article-date">
-  	<time datetime="2017-07-16T12:57:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-16</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/posts/2017-07-16/一曲云水释禅心/">摘抄1 一曲云水释禅心</a>
+    <h1 class="article-title" itemprop="name">
+      [Cocos] make.exe: *** No rule to make target 错误原因与解决方案
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/posts/2017-10-18/cocos2dx-js 一次打包报错/" class="archive-article-date">
+  	<time datetime="2017-10-17T16:14:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <font face="黑体"><br>记一次 cocos2dx-js Android 打包报错。<br><br>将能够正确打包的 HelloWorld 工程拷贝到家里的电脑，确保配好环境之后打包的时候报错了，错误信息如下：<br><br><span style="font-weight: bold;">make.exe: <em>*</em> No rule to make target ‘xxx.cpp’,need ‘xxx.o’ </span><br><br>错误原因：因为工程的路径发生改变，比如E盘移到了D盘，或是像我这样更换了电脑。而之前打包生成的 .o 静态库文件并不会重新编译，所以在打包时导致了在原本的路径找不到对应的依赖文件。<br><p style="color: red;">解决办法：删除项目中编译后的 obj 文件夹，重新编译一次即可。</p><br></font>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">摘抄</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">散文</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">禅语</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">cocos</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://hyjzref.github.io/posts/2017-10-18/cocos2dx-js 一次打包报错/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/posts/2017-09-28/cocos2dx-js 3.12 绑定技术浅探/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">[Cocos] cocos2dx-js 3.12 绑定技术浅探</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -233,9 +295,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
