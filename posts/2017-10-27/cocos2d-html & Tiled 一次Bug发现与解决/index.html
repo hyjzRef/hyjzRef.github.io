@@ -6,17 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://hyjzref.github.io">
-  <title>Archives | 黑夜·镜子的博客</title>
+  <title>[Cocos]Cocos2d-html &amp; Tiled 引擎多加载一块瓷砖致使X坐标不正确 | 黑夜·镜子的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="愿尘世间全部相逢，皆以幸福共始终">
-<meta property="og:type" content="website">
-<meta property="og:title" content="黑夜·镜子的博客">
-<meta property="og:url" content="http://hyjzref.github.io/archives/index.html">
+  <meta name="description" content="记载一次在 Cocos2d-html 引擎中使用 Tiled 的 Bug 发现和解决。    这是我在 Tiled 中设计的图层：我想加载黑色框中的图像，但是我实际加载出来的是红色框中的图像。这看起来就像是 cocos2d-html 引擎在计算水平位置时多往右加了一个格子的位置 …然后这是在浏览器中的图像：好气啊">
+<meta name="keywords" content="cocos,bug">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Cocos]Cocos2d-html &amp; Tiled 引擎多加载一块瓷砖致使X坐标不正确">
+<meta property="og:url" content="http://hyjzref.github.io/posts/2017-10-27/cocos2d-html & Tiled 一次Bug发现与解决/index.html">
 <meta property="og:site_name" content="黑夜·镜子的博客">
-<meta property="og:description" content="愿尘世间全部相逢，皆以幸福共始终">
+<meta property="og:description" content="记载一次在 Cocos2d-html 引擎中使用 Tiled 的 Bug 发现和解决。    这是我在 Tiled 中设计的图层：我想加载黑色框中的图像，但是我实际加载出来的是红色框中的图像。这看起来就像是 cocos2d-html 引擎在计算水平位置时多往右加了一个格子的位置 …然后这是在浏览器中的图像：好气啊">
+<meta property="og:image" content="http://hyjzref.github.io/img/cocos/img_3.png">
+<meta property="og:image" content="http://hyjzref.github.io/img/cocos/img_4.png">
+<meta property="og:image" content="http://hyjzref.github.io/img/cocos/img_5.png">
+<meta property="og:updated_time" content="2017-10-26T16:28:16.869Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="黑夜·镜子的博客">
-<meta name="twitter:description" content="愿尘世间全部相逢，皆以幸福共始终">
+<meta name="twitter:title" content="[Cocos]Cocos2d-html &amp; Tiled 引擎多加载一块瓷砖致使X坐标不正确">
+<meta name="twitter:description" content="记载一次在 Cocos2d-html 引擎中使用 Tiled 的 Bug 发现和解决。    这是我在 Tiled 中设计的图层：我想加载黑色框中的图像，但是我实际加载出来的是红色框中的图像。这看起来就像是 cocos2d-html 引擎在计算水平位置时多往右加了一个格子的位置 …然后这是在浏览器中的图像：好气啊">
+<meta name="twitter:image" content="http://hyjzref.github.io/img/cocos/img_3.png">
   
     <link rel="alternative" href="/atom.xml" title="黑夜·镜子的博客" type="application/atom+xml">
   
@@ -144,36 +150,39 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-cocos2d-html &amp; Tiled 一次Bug发现与解决" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      [Cocos]Cocos2d-html &amp; Tiled 引擎多加载一块瓷砖致使X坐标不正确
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/posts/2017-10-27/cocos2d-html & Tiled 一次Bug发现与解决/" class="archive-article-date">
+
+        
+        <a href="/posts/2017-10-27/cocos2d-html & Tiled 一次Bug发现与解决/" class="archive-article-date">
   	<time datetime="2017-10-26T16:07:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-27</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/posts/2017-10-27/cocos2d-html & Tiled 一次Bug发现与解决/">[Cocos]Cocos2d-html &amp; Tiled 引擎多加载一块瓷砖致使X坐标不正确</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>记载一次在 Cocos2d-html 引擎中使用 Tiled 的 Bug 发现和解决。  </p>
+<hr>
+<p>这是我在 Tiled 中设计的图层：<br><strong>我想加载黑色框中的图像，但是我实际加载出来的是红色框中的图像。</strong><br><img src="/img/cocos/img_3.png" alt="img"><br>这看起来就像是 cocos2d-html 引擎在计算水平位置时多往右加了一个格子的位置 …<br>然后这是在浏览器中的图像：<br>好气啊   </p>
+<h2 id=""><a href="#" class="headerlink" title="  "></a><img src="/img/cocos/img_4.png" alt="img">  </h2><a id="more"></a>愤怒地猜原因：<br>1.可能是图集过大导致的，试过多次将图集的大小减小但是这个问题依然存在。<br>2.我又猜测可能我所选择的压缩格式有问题，尝试选择 zlib、xml 都未能解决问题<br>3.最后在 cocos2d-html 引擎中发现这么一段代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// frameworks/cocos2d-html5/cocos2d/tilemap/CCTMXXMLParser.js</span></div><div class="line">parseXMLFile:<span class="function"><span class="keyword">function</span> (<span class="params">tmxFile, isXmlString</span>) </span>&#123;</div><div class="line">	...</div><div class="line">	var tileset = <span class="keyword">new</span> cc.TMXTilesetInfo();</div><div class="line">	<span class="keyword">var</span> tileset = <span class="keyword">new</span> cc.TMXTilesetInfo();</div><div class="line">	tileset.name = selTileset.getAttribute(<span class="string">'name'</span>) || <span class="string">""</span>;</div><div class="line">	<span class="comment">//TODO need fix</span></div><div class="line">	<span class="comment">//if(this._currentFirstGID === 0)&#123;</span></div><div class="line">	tileset.firstGid = <span class="built_in">parseInt</span>(selTileset.getAttribute(<span class="string">'firstgid'</span>)) || <span class="number">0</span>;</div><div class="line">	<span class="comment">//&#125;else&#123;</span></div><div class="line">	<span class="comment">//    tileset.firstGid = this._currentFirstGID;</span></div><div class="line">	<span class="comment">//    this._currentFirstGID = 0;</span></div><div class="line">	<span class="comment">//&#125;</span></div><div class="line">	...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p></p><p style="color: red;">抱着试一试的心态将代码里<span style="font-weight: bold;"> tileset.firstGid </span>的默认值从<span style="font-weight: bold;"> 0 </span>改为<span style="font-weight: bold;"> 1 </span>后问题解决。</p><br><img src="/img/cocos/img_5.png" alt="img"><br>发现成功时的心情开心到要起飞(￣▽￣)/  <p></p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -189,385 +198,89 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://hyjzref.github.io/posts/2017-10-27/cocos2d-html & Tiled 一次Bug发现与解决/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/posts/2017-10-18/cocos2dx-js 一次打包报错/" class="archive-article-date">
-  	<time datetime="2017-10-17T16:14:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-18</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/posts/2017-10-18/cocos2dx-js 一次打包报错/">[Cocos] make.exe: *** No rule to make target 错误原因与解决方案</a>
-    </h1>
+  
+    <a href="/posts/2017-10-18/cocos2dx-js 一次打包报错/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">[Cocos] make.exe: *** No rule to make target 错误原因与解决方案</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">cocos</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">bug</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/posts/2017-09-28/cocos2dx-js 3.12 绑定技术浅探/" class="archive-article-date">
-  	<time datetime="2017-09-28T14:51:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/posts/2017-09-28/cocos2dx-js 3.12 绑定技术浅探/">[Cocos] cocos2dx-js 3.12 绑定技术浅探</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">cocos</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/posts/2017-09-25/cocos2dx-js 3.12 热更新原理/" class="archive-article-date">
-  	<time datetime="2017-09-25T14:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/posts/2017-09-25/cocos2dx-js 3.12 热更新原理/">[Cocos] cocos2dx-js 3.12 热更新原理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">cocos</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/posts/2017-07-23/大护法中的一些感想/" class="archive-article-date">
-  	<time datetime="2017-07-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/posts/2017-07-23/大护法中的一些感想/">动画感想2 大护法中的一些感想-《大护法》</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">感想</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大护法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/posts/2017-07-22/fault2/" class="archive-article-date">
-  	<time datetime="2017-07-21T17:24:36.914Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/posts/2017-07-22/fault2/">游戏感想1 莉冈女王的人生哲学-《fault2》</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">感想</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">fault</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/posts/2017-07-16/一曲云水释禅心/" class="archive-article-date">
-  	<time datetime="2017-07-16T12:57:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/posts/2017-07-16/一曲云水释禅心/">摘抄1 一曲云水释禅心</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">摘抄</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">散文</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">禅语</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/posts/2017-07-12/COCOS中的Http/" class="archive-article-date">
-  	<time datetime="2017-07-12T15:31:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/posts/2017-07-12/COCOS中的Http/">[Cocos] Cocos中的Http扫盲学习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">cocos</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/posts/2017-06-20/声之形/" class="archive-article-date">
-  	<time datetime="2017-06-19T18:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/posts/2017-06-20/声之形/">动画感想1 像硝子那样郑重、包容-《声之形》</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">感想</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">声之形</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/posts/2017-05-13/js/" class="archive-article-date">
-  	<time datetime="2017-05-13T12:11:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/posts/2017-05-13/js/">[Cocos] JavaScript基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">cocos</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -595,8 +308,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
