@@ -6,23 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://hyjzref.github.io">
-  <title>[Cocos]Cocos2d-html &amp; Tiled 引擎多加载一块瓷砖致使X坐标不正确 | 黑夜·镜子的博客</title>
+  <title>我的游戏开发日记 | 黑夜·镜子的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记载一次在 Cocos2d-html 引擎中使用 Tiled 的 Bug 发现和解决。    这是我在 Tiled 中设计的图层：我想加载黑色框中的图像，但是我实际加载出来的是红色框中的图像。这看起来就像是 cocos2d-html 引擎在计算水平位置时多往右加了一个格子的位置 …然后这是在浏览器中的图像：好气啊">
-<meta name="keywords" content="cocos,bug">
+  <meta name="description" content="2017.10.12涂鸦时突然脑门一热，胸腔突然跟上燃起滚滚热血，全身突然一个激灵振起，JOJO！（~~老子不做人了！）老子要做游戏了！啊，莫名就开始了。。。2017.11.06 除去玩游戏、看漫画和睡懒觉业余时间是真的不多，啊这么想想时间还是蛮多的。想来想去决定开始的时候还是选择自己算熟悉的 Cocos 引擎，这将近一个月的时间干这么些事：1.搭建开发环境包括 Cocos 引擎、CocosStu">
+<meta name="keywords" content="开发日记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[Cocos]Cocos2d-html &amp; Tiled 引擎多加载一块瓷砖致使X坐标不正确">
-<meta property="og:url" content="http://hyjzref.github.io/posts/2017-10-27/cocos2d-html & Tiled 一次Bug发现与解决/index.html">
+<meta property="og:title" content="我的游戏开发日记">
+<meta property="og:url" content="http://hyjzref.github.io/posts/2018-02-28/我的游戏开发记录/index.html">
 <meta property="og:site_name" content="黑夜·镜子的博客">
-<meta property="og:description" content="记载一次在 Cocos2d-html 引擎中使用 Tiled 的 Bug 发现和解决。    这是我在 Tiled 中设计的图层：我想加载黑色框中的图像，但是我实际加载出来的是红色框中的图像。这看起来就像是 cocos2d-html 引擎在计算水平位置时多往右加了一个格子的位置 …然后这是在浏览器中的图像：好气啊">
-<meta property="og:image" content="http://hyjzref.github.io/img/cocos/img_3.png">
-<meta property="og:image" content="http://hyjzref.github.io/img/cocos/img_4.png">
-<meta property="og:image" content="http://hyjzref.github.io/img/cocos/img_5.png">
-<meta property="og:updated_time" content="2017-10-29T04:17:51.297Z">
+<meta property="og:description" content="2017.10.12涂鸦时突然脑门一热，胸腔突然跟上燃起滚滚热血，全身突然一个激灵振起，JOJO！（~~老子不做人了！）老子要做游戏了！啊，莫名就开始了。。。2017.11.06 除去玩游戏、看漫画和睡懒觉业余时间是真的不多，啊这么想想时间还是蛮多的。想来想去决定开始的时候还是选择自己算熟悉的 Cocos 引擎，这将近一个月的时间干这么些事：1.搭建开发环境包括 Cocos 引擎、CocosStu">
+<meta property="og:image" content="http://hyjzref.github.io/img/record/img_1.gif">
+<meta property="og:updated_time" content="2017-11-06T15:37:44.548Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[Cocos]Cocos2d-html &amp; Tiled 引擎多加载一块瓷砖致使X坐标不正确">
-<meta name="twitter:description" content="记载一次在 Cocos2d-html 引擎中使用 Tiled 的 Bug 发现和解决。    这是我在 Tiled 中设计的图层：我想加载黑色框中的图像，但是我实际加载出来的是红色框中的图像。这看起来就像是 cocos2d-html 引擎在计算水平位置时多往右加了一个格子的位置 …然后这是在浏览器中的图像：好气啊">
-<meta name="twitter:image" content="http://hyjzref.github.io/img/cocos/img_3.png">
+<meta name="twitter:title" content="我的游戏开发日记">
+<meta name="twitter:description" content="2017.10.12涂鸦时突然脑门一热，胸腔突然跟上燃起滚滚热血，全身突然一个激灵振起，JOJO！（~~老子不做人了！）老子要做游戏了！啊，莫名就开始了。。。2017.11.06 除去玩游戏、看漫画和睡懒觉业余时间是真的不多，啊这么想想时间还是蛮多的。想来想去决定开始的时候还是选择自己算熟悉的 Cocos 引擎，这将近一个月的时间干这么些事：1.搭建开发环境包括 Cocos 引擎、CocosStu">
+<meta name="twitter:image" content="http://hyjzref.github.io/img/record/img_1.gif">
   
     <link rel="alternative" href="/atom.xml" title="黑夜·镜子的博客" type="application/atom+xml">
   
@@ -150,34 +148,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-cocos2d-html &amp; Tiled 一次Bug发现与解决" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-我的游戏开发记录" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      [Cocos]Cocos2d-html &amp; Tiled 引擎多加载一块瓷砖致使X坐标不正确
+      我的游戏开发日记
     </h1>
   
 
         
-        <a href="/posts/2017-10-27/cocos2d-html & Tiled 一次Bug发现与解决/" class="archive-article-date">
-  	<time datetime="2017-10-26T16:07:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-27</time>
+        <a href="/posts/2018-02-28/我的游戏开发记录/" class="archive-article-date">
+  	<time datetime="2018-02-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>记载一次在 Cocos2d-html 引擎中使用 Tiled 的 Bug 发现和解决。  </p>
-<hr>
-<p>这是我在 Tiled 中设计的图层：<br><strong>我想加载黑色框中的图像，但是我实际加载出来的是红色框中的图像。</strong><br><img src="/img/cocos/img_3.png" alt="img"><br>这看起来就像是 cocos2d-html 引擎在计算水平位置时多往右加了一个格子的位置 …<br>然后这是在浏览器中的图像：<br>好气啊   </p>
-<h2 id=""><a href="#" class="headerlink" title="  "></a><img src="/img/cocos/img_4.png" alt="img">  </h2><a id="more"></a>愤怒地猜原因：<br>1.可能是图集过大导致的，试过多次将图集的大小减小但是这个问题依然存在。<br>2.我又猜测可能我所选择的压缩格式有问题，尝试选择 zlib、xml 都未能解决问题<br>3.最后在 cocos2d-html 引擎中发现这么一段代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// frameworks/cocos2d-html5/cocos2d/tilemap/CCTMXXMLParser.js</span></div><div class="line">parseXMLFile:<span class="function"><span class="keyword">function</span> (<span class="params">tmxFile, isXmlString</span>) </span>&#123;</div><div class="line">	...</div><div class="line">	var tileset = <span class="keyword">new</span> cc.TMXTilesetInfo();</div><div class="line">	<span class="keyword">var</span> tileset = <span class="keyword">new</span> cc.TMXTilesetInfo();</div><div class="line">	tileset.name = selTileset.getAttribute(<span class="string">'name'</span>) || <span class="string">""</span>;</div><div class="line">	<span class="comment">//TODO need fix</span></div><div class="line">	<span class="comment">//if(this._currentFirstGID === 0)&#123;</span></div><div class="line">	tileset.firstGid = <span class="built_in">parseInt</span>(selTileset.getAttribute(<span class="string">'firstgid'</span>)) || <span class="number">0</span>;</div><div class="line">	<span class="comment">//&#125;else&#123;</span></div><div class="line">	<span class="comment">//    tileset.firstGid = this._currentFirstGID;</span></div><div class="line">	<span class="comment">//    this._currentFirstGID = 0;</span></div><div class="line">	<span class="comment">//&#125;</span></div><div class="line">	...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p></p><p style="color: red;">抱着试一试的心态将代码里<span style="font-weight: bold;"> tileset.firstGid </span>的默认值从<span style="font-weight: bold;"> 0 </span>改为<span style="font-weight: bold;"> 1 </span>后问题解决。</p><br><img src="/img/cocos/img_5.png" alt="img"><br>发现成功时的心情开心到要起飞(￣▽￣)/  <p></p>
-<hr>
-<p>2017.10.29<br>在论坛上收到了一位大佬的回复，上面的方法似乎仅适用于只使用一块 tileset(图块)时的情形，而cocos官方注释掉的方法应该是能够解决这个问题的，但不知道为什么给注了。。。</p>
-
+        <font face="黑体"><br><h4>2017.10.12</h4>涂鸦时突然脑门一热，胸腔突然跟上燃起滚滚热血，全身突然一个激灵振起，JOJO！（~~老子不做人了！）老子要做游戏了！<br>啊，莫名就开始了。。。<br><br><h4>2017.11.06</h4> 除去玩游戏、看漫画和睡懒觉业余时间是真的不多，啊这么想想时间还是蛮多的。<br>想来想去决定开始的时候还是选择自己算熟悉的 Cocos 引擎，这将近一个月的时间干这么些事：<br>1.搭建开发环境包括 Cocos 引擎、CocosStudio 编辑器和 ADK、SDK 等；<br>2.在网上寻找下载合适的美术资源；  <a id="more"></a><br>3.选择游戏工具链：<br>- Tiled:地图编辑器<br>- TexturePacker：图片打包工具；<br>- ShoeBox：图集处理工具，百度“动态图片基地”更好用；<br>- Pdplayer：帧动画编辑器；<br>- 不知名的 bmp 转 png 转换器：可以去掉 bmp 的黑底并且为 png 保留透明像素，真心好用。<br>4.发现了一个 Cocos-html 上运 行Tiled 的 Bug，加载出来的图块计算X格子数会多加上一，emm。。。百度了一圈没想到都没人提到过这个Bug，花了好几个晚上才解决就另开了一篇<a href="/cocos2d-html &amp; Tiled 一次Bug发现与解决.html">文章</a>写了。<br>5.简单地写了点样子——摇杆控制角色状态变化。（实际编写游戏才发现自己在框架模式上知识的匮乏程度，还需加油啊(・`ω´･)）<br>最后，附上见笑的效果图：<br><img src="/img/record/img_1.gif" alt="img"><br>打算以后做成一个2D横版闯关游戏，今天就先撤了，人感冒了有点飘~。<br></font>
       
 
       
@@ -190,11 +181,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">cocos</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">bug</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">开发日记</a>
         		</li>
       		
 		</ul>
@@ -250,7 +237,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://hyjzref.github.io/posts/2017-10-27/cocos2d-html & Tiled 一次Bug发现与解决/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://hyjzref.github.io/posts/2018-02-28/我的游戏开发记录/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -264,18 +251,9 @@
   
 <nav id="article-nav">
   
-    <a href="/posts/2018-02-28/我的游戏开发记录/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          我的游戏开发日记
-        
-      </div>
-    </a>
   
-  
-    <a href="/posts/2017-10-18/cocos2dx-js 一次打包报错/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">[Cocos] make.exe: *** No rule to make target 错误原因与解决方案</div>
+    <a href="/posts/2017-10-27/cocos2d-html & Tiled 一次Bug发现与解决/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">[Cocos]Cocos2d-html &amp; Tiled 引擎多加载一块瓷砖致使X坐标不正确</div>
       <i class="icon-circle-right"></i>
     </a>
   
