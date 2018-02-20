@@ -287,7 +287,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://hyjzref.github.io/posts/2018-02-15/【年终总结】2017年年终总结/" data-id="cjdvnauhp000mq4k2mukbqc8x" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://hyjzref.github.io/posts/2018-02-15/【年终总结】2017年年终总结/" data-id="cjdvu2nfi000vhsk2x5eq3ra9" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -355,8 +355,6 @@ var _hmt = _hmt || [];
 
             
     
-        <a href="http://hyjzref.github.io/posts/2018-02-15/【年终总结】2017年年终总结/#comments" class="article-comment-link">评论</a>
-    
 
         </footer>
     </div>
@@ -380,7 +378,7 @@ var _hmt = _hmt || [];
     
     
         <section id="comments">
-    <div id="uyan_frame"></div>
+	<div id="commentContainer"></div>
 </section>
     
 
@@ -516,8 +514,20 @@ var _hmt = _hmt || [];
 </footer>
         
     
-    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2154650"></script>
-
+	<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+	<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+	<script>
+		var gitment = new Gitment({
+			owner: '28472954',
+			repo: 'hyjzRef.github.io',
+			oauth: {
+				client_id: '870d090bab7ca29ba3d4',
+				client_secret: '58650389143036252121e7a9f2b3e3f50842bec2',
+			},
+		})
+		gitment.render('commentContainer')
+	</script>
+	
 
 
 

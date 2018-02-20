@@ -261,7 +261,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://hyjzref.github.io/posts/2017-10-27/cocos2d-html & Tiled 一次Bug发现与解决/" data-id="cjdvnaug90006q4k2oawp90k1" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://hyjzref.github.io/posts/2017-10-27/cocos2d-html & Tiled 一次Bug发现与解决/" data-id="cjdvu2ne40002hsk2f7wo428i" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -329,8 +329,6 @@ var _hmt = _hmt || [];
 
             
     
-        <a href="http://hyjzref.github.io/posts/2017-10-27/cocos2d-html & Tiled 一次Bug发现与解决/#comments" class="article-comment-link">评论</a>
-    
 
         </footer>
     </div>
@@ -363,7 +361,7 @@ var _hmt = _hmt || [];
     
     
         <section id="comments">
-    <div id="uyan_frame"></div>
+	<div id="commentContainer"></div>
 </section>
     
 
@@ -499,8 +497,20 @@ var _hmt = _hmt || [];
 </footer>
         
     
-    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2154650"></script>
-
+	<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+	<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+	<script>
+		var gitment = new Gitment({
+			owner: '28472954',
+			repo: 'hyjzRef.github.io',
+			oauth: {
+				client_id: '870d090bab7ca29ba3d4',
+				client_secret: '58650389143036252121e7a9f2b3e3f50842bec2',
+			},
+		})
+		gitment.render('commentContainer')
+	</script>
+	
 
 
 
