@@ -5,21 +5,19 @@
     <meta name="google-site-verification" content="hjN29-PO_KfE-dgow-7hcz75xJj0qzZ6G2OkXZ3FVd8" />
     <meta charset="utf-8">
     
-    <title>[Cocos] cocos2dx-js 3.12 绑定技术浅探 | 黑夜·镜子的博客</title>
+    <title>[Unity]Mesh相关类库文档自译 | 黑夜·镜子的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="研究项目代码的时候，发现很多时候大佬的代码一直有一个很神秘的函数调用，这个函数看不到在哪定义也找不到实现。偶然间接触到 JSB(JavaScript Binding) 才恍然大悟。JSB 大概的说是将 JS 与 C++ 绑定起来的通道，感觉摸到了点 JSB 的门道，笔记笔记~1.JS 引擎的脚本绑定框架要了解绑定过程就必须先了解 JS 绑定框架。如图 JS 脚本绑定框架可以分为三层，最底层是 C+">
-<meta name="keywords" content="cocos">
+    <meta name="description" content="Mesh 网格概述可以通过脚本代码创建或修改Mesh类。 Mesh的属性包括顶点数组和若干个三角形数组 对于每一个顶点，可以有一条法线、两个纹理坐标、颜色和切线。这些都是可选的可以随意删除。所有的顶点信息都分别存储在相同大小的数组中，如果你的mesh有十个顶点，那么你就会有十条法线和其它属性的数组。 以下三种情况你可能会想用可修改的mesh： 1.从零开始创建一个mesh：应该按照下面的顺序a)">
+<meta name="keywords" content="Unity文档">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[Cocos] cocos2dx-js 3.12 绑定技术浅探">
-<meta property="og:url" content="http://hyjzref.github.io/posts/2017-09-28/cocos2dx-js 3.12 绑定技术浅探/index.html">
+<meta property="og:title" content="[Unity]Mesh相关类库文档自译">
+<meta property="og:url" content="http://hyjzref.github.io/posts/2018-03-03/[Unity]Mesh相关类库翻译/index.html">
 <meta property="og:site_name" content="黑夜·镜子的博客">
-<meta property="og:description" content="研究项目代码的时候，发现很多时候大佬的代码一直有一个很神秘的函数调用，这个函数看不到在哪定义也找不到实现。偶然间接触到 JSB(JavaScript Binding) 才恍然大悟。JSB 大概的说是将 JS 与 C++ 绑定起来的通道，感觉摸到了点 JSB 的门道，笔记笔记~1.JS 引擎的脚本绑定框架要了解绑定过程就必须先了解 JS 绑定框架。如图 JS 脚本绑定框架可以分为三层，最底层是 C+">
-<meta property="og:image" content="http://hyjzref.github.io/img/cocos/img_2.png">
-<meta property="og:updated_time" content="2018-02-20T13:45:32.160Z">
+<meta property="og:description" content="Mesh 网格概述可以通过脚本代码创建或修改Mesh类。 Mesh的属性包括顶点数组和若干个三角形数组 对于每一个顶点，可以有一条法线、两个纹理坐标、颜色和切线。这些都是可选的可以随意删除。所有的顶点信息都分别存储在相同大小的数组中，如果你的mesh有十个顶点，那么你就会有十条法线和其它属性的数组。 以下三种情况你可能会想用可修改的mesh： 1.从零开始创建一个mesh：应该按照下面的顺序a)">
+<meta property="og:updated_time" content="2018-03-03T06:51:17.756Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[Cocos] cocos2dx-js 3.12 绑定技术浅探">
-<meta name="twitter:description" content="研究项目代码的时候，发现很多时候大佬的代码一直有一个很神秘的函数调用，这个函数看不到在哪定义也找不到实现。偶然间接触到 JSB(JavaScript Binding) 才恍然大悟。JSB 大概的说是将 JS 与 C++ 绑定起来的通道，感觉摸到了点 JSB 的门道，笔记笔记~1.JS 引擎的脚本绑定框架要了解绑定过程就必须先了解 JS 绑定框架。如图 JS 脚本绑定框架可以分为三层，最底层是 C+">
-<meta name="twitter:image" content="http://hyjzref.github.io/img/cocos/img_2.png">
+<meta name="twitter:title" content="[Unity]Mesh相关类库文档自译">
+<meta name="twitter:description" content="Mesh 网格概述可以通过脚本代码创建或修改Mesh类。 Mesh的属性包括顶点数组和若干个三角形数组 对于每一个顶点，可以有一条法线、两个纹理坐标、颜色和切线。这些都是可选的可以随意删除。所有的顶点信息都分别存储在相同大小的数组中，如果你的mesh有十个顶点，那么你就会有十条法线和其它属性的数组。 以下三种情况你可能会想用可修改的mesh： 1.从零开始创建一个mesh：应该按照下面的顺序a)">
     
 
     
@@ -199,7 +197,7 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main"><article id="post-cocos2dx-js 3.12 绑定技术浅探" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-[Unity]Mesh相关类库翻译" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -207,7 +205,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 class="article-title" itemprop="name">
-            [Cocos] cocos2dx-js 3.12 绑定技术浅探
+            [Unity]Mesh相关类库文档自译
         </h1>
     
 
@@ -216,8 +214,8 @@ var _hmt = _hmt || [];
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/posts/2017-09-28/cocos2dx-js 3.12 绑定技术浅探/">
-            <time datetime="2017-09-28T14:51:00.000Z" itemprop="datePublished">2017-09-28</time>
+        <a href="/posts/2018-03-03/[Unity]Mesh相关类库翻译/">
+            <time datetime="2018-03-03T06:48:00.000Z" itemprop="datePublished">2018-03-03</time>
         </a>
     </div>
 
@@ -225,13 +223,13 @@ var _hmt = _hmt || [];
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Cocos2d-js/">Cocos2d-js</a>
+        <a class="article-category-link" href="/categories/Unity/">Unity</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/cocos/">cocos</a>
+        <a class="tag-link" href="/tags/Unity文档/">Unity文档</a>
     </div>
 
                     </div>
@@ -242,11 +240,37 @@ var _hmt = _hmt || [];
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>研究项目代码的时候，发现很多时候大佬的代码一直有一个很神秘的函数调用，这个函数看不到在哪定义也找不到实现。偶然间接触到 JSB(JavaScript Binding) 才恍然大悟。<br>JSB 大概的说是将 JS 与 C++ 绑定起来的通道，感觉摸到了点 JSB 的门道，笔记笔记~<br><strong>1.JS 引擎的脚本绑定框架</strong><br>要了解绑定过程就必须先了解 JS 绑定框架。如图 JS 脚本绑定框架可以分为三层，最底层是 C++ 编写的Cocos2d-x 游戏引擎；往上一层是 JS 引擎 SpiderMonkey 和 JSB 绑定技术，JSB 可以由三部分组成，分别是自动绑定、手动绑定和纯脚本绑定；最高层才是 JS 的 API 和逻辑代码。 </p>
-<p><img src="/img/cocos/img_2.png" alt="img">  </p>
-<p><strong>2.自动绑定的过程</strong><br>Cocos2dx-js 引擎提供的底层 C++ 代码的调用绝大部分都是通过自动绑定技术实现的，所以要看底层源码<a id="more"></a>还是得了解一下自动绑定。<br>1.)函数注册<br>第一步需要在 AppDelegate.cpp 中的 applicationDidFinishLaunching 函数中进行函数注册，将 C++ 代码注册到 JS 引擎，JS 调用代码时会转换调用对应绑定的 C++ 代码，这里注册了各种类库。<br>2.)函数绑定<br>第二步是将 C++ 函数绑定 JS 函数，在 frameworks\cocos2d-x\cocos\scripting\js-bindings\auto 目录下绑定了诸多函数。例如<br> jsb_cocos2dx_extension_auto.cpp 中就会有<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">static JSFunctionSpec funcs[] = &#123;</div><div class="line">       JS_FN(<span class="string">"setEnabled"</span>, js_cocos2dx_extension_Control_setEnabled, <span class="number">1</span>, JSPROP_PERMANENT <span class="string">| JSPROP_ENUMERATE),</span></div><div class="line">       JS_FN(<span class="string">"getState"</span>, js_cocos2dx_extension_Control_getState, <span class="number">0</span>, JSPROP_PERMANENT <span class="string">| JSPROP_ENUMERATE),</span></div><div class="line">       JS_FN(<span class="string">"sendActionsForControlEvents"</span>, js_cocos2dx_extension_Control_sendActionsForControlEvents, <span class="number">1</span>, JSPROP_PERMANENT <span class="string">| JSPROP_ENUMERATE),</span></div><div class="line">       JS_FN(<span class="string">"setSelected"</span>, js_cocos2dx_extension_Control_setSelected, <span class="number">1</span>, JSPROP_PERMANENT <span class="string">| JSPROP_ENUMERATE),</span></div><div class="line">       JS_FN(<span class="string">"isEnabled"</span>, js_cocos2dx_extension_Control_isEnabled, <span class="number">0</span>, JSPROP_PERMANENT <span class="string">| JSPROP_ENUMERATE),</span></div><div class="line">       JS_FN(<span class="string">"needsLayout"</span>, js_cocos2dx_extension_Control_needsLayout, <span class="number">0</span>, JSPROP_PERMANENT <span class="string">| JSPROP_ENUMERATE),</span></div><div class="line">       JS_FN(<span class="string">"hasVisibleParents"</span>, js_cocos2dx_extension_Control_hasVisibleParents, <span class="number">0</span>, JSPROP_PERMANENT <span class="string">| JSPROP_ENUMERATE),</span></div><div class="line">       JS_FN(<span class="string">"isSelected"</span>, js_cocos2dx_extension_Control_isSelected, <span class="number">0</span>, JSPROP_PERMANENT <span class="string">| JSPROP_ENUMERATE),</span></div><div class="line">       JS_FN(<span class="string">"isTouchInside"</span>, js_cocos2dx_extension_Control_isTouchInside, <span class="number">1</span>, JSPROP_PERMANENT <span class="string">| JSPROP_ENUMERATE),</span></div><div class="line">       JS_FN(<span class="string">"setHighlighted"</span>, js_cocos2dx_extension_Control_setHighlighted, <span class="number">1</span>, JSPROP_PERMANENT <span class="string">| JSPROP_ENUMERATE),</span></div><div class="line">       JS_FN(<span class="string">"getTouchLocation"</span>, js_cocos2dx_extension_Control_getTouchLocation, <span class="number">1</span>, JSPROP_PERMANENT <span class="string">| JSPROP_ENUMERATE),</span></div><div class="line">       JS_FN(<span class="string">"isHighlighted"</span>, js_cocos2dx_extension_Control_isHighlighted, <span class="number">0</span>, JSPROP_PERMANENT <span class="string">| JSPROP_ENUMERATE),</span></div><div class="line">       JS_FS_END</div><div class="line">   &#125;;</div><div class="line"><span class="comment">// JS_FN中参数分别为JS函数名，C++函数名，参数个数，访问特性</span></div></pre></td></tr></table></figure></p>
-<p>3.)C++的实现代码<br>最后，一般在,cpp文件中找到实现代码。比方说 2 中的 setEnabled 函数的实现代码就能在 jsb_cocos2dx_extension_auto.cpp 中找到。<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">bool </span><span class="keyword">js_cocos2dx_extension_Control_setEnabled(JSContext </span>*cx, uint32_t argc, <span class="keyword">jsval </span>*vp)</div><div class="line">&#123;</div><div class="line"><span class="symbol">    JS:</span>:CallArgs args = <span class="keyword">JS::CallArgsFromVp(argc, </span>vp)<span class="comment">;</span></div><div class="line">    <span class="keyword">bool </span>ok = true<span class="comment">;</span></div><div class="line"><span class="symbol">    JS:</span>:RootedObject obj(cx, args.thisv().toObjectOrNull())<span class="comment">;</span></div><div class="line">    <span class="keyword">js_proxy_t </span>*proxy = <span class="keyword">jsb_get_js_proxy(obj);</span></div><div class="line"><span class="symbol">    cocos2d:</span>:<span class="keyword">extension::Control* </span>cobj = (cocos2d::<span class="keyword">extension::Control </span>*)(proxy ? proxy-&gt;ptr : NULL)<span class="comment">;</span></div><div class="line">    <span class="keyword">JSB_PRECONDITION2( </span>cobj, cx, false, <span class="string">"js_cocos2dx_extension_Control_setEnabled : Invalid Native Object"</span>)<span class="comment">;</span></div><div class="line">    if (argc == <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">bool </span>arg0<span class="comment">;</span></div><div class="line">        arg0 = <span class="keyword">JS::ToBoolean(args.get(0));</span></div><div class="line">        <span class="keyword">JSB_PRECONDITION2(ok, </span>cx, false, <span class="string">"js_cocos2dx_extension_Control_setEnabled : Error processing arguments"</span>)<span class="comment">;</span></div><div class="line">        cobj-&gt;setEnabled(arg0)<span class="comment">;</span></div><div class="line">        args.rval().setUndefined()<span class="comment">;</span></div><div class="line">        return true<span class="comment">;</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">JS_ReportError(cx, </span><span class="string">"js_cocos2dx_extension_Control_setEnabled : wrong number of arguments: %d, was expecting %d"</span>, argc, <span class="number">1</span>)<span class="comment">;</span></div><div class="line">    return false<span class="comment">;</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>3.深入研究的方向</strong><br>这里作为扩展加分项，以后有需要再进行研究。例如：<br>● Andriod.mk 中会包含所有需要参与编译的 .cpp 文件；<br>● 以及绑定时的转换规则可能需要修改,类型转换、命名空间转换什么的。详见 <a href="">http://blog.csdn.net/jianglong0156/article/details/45896341</a></p>
+            <h2 id="Mesh-网格"><a href="#Mesh-网格" class="headerlink" title="Mesh 网格"></a>Mesh 网格</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>可以通过脚本代码创建或修改Mesh类。</p>
+<p>Mesh的属性包括顶点数组和若干个三角形数组</p>
+<p>对于每一个顶点，可以有一条法线、两个纹理坐标、颜色和切线。这些都是可选的可以随意删除。所有的顶点信息都分别存储在相同大小的数组中，如果你的mesh有十个顶点，那么你就会有十条法线和其它属性的数组。</p>
+<p>以下三种情况你可能会想用可修改的mesh：</p>
+<p><strong>1.从零开始创建一个mesh：</strong>应该按照下面的顺序<br>a) 指定顶点<br>b) 指定若干个三角形</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">using</span> UnityEngine;</div><div class="line"><span class="keyword">using</span> System.Collections;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExampleClass</span> : <span class="title">MonoBehaviour</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> Vector3[] <span class="keyword">new</span><span class="type">Vertices</span>;</div><div class="line">    <span class="keyword">public</span> Vector2[] <span class="keyword">new</span><span class="type">UV</span>;</div><div class="line">    <span class="keyword">public</span> int[] <span class="keyword">new</span><span class="type">Triangles</span>;</div><div class="line">    void Start() &#123;</div><div class="line">        Mesh mesh = <span class="keyword">new</span> <span class="type">Mesh</span>();</div><div class="line">        GetComponent&lt;MeshFilter&gt;().mesh = mesh;</div><div class="line">        mesh.vertices = <span class="keyword">new</span><span class="type">Vertices</span>;</div><div class="line">        mesh.uv = <span class="keyword">new</span><span class="type">UV</span>;</div><div class="line">        mesh.triangles = <span class="keyword">new</span><span class="type">Triangles</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p><strong>2.每一帧去修改顶点属性：</strong><br>a) 获取顶点<br>b) 修改它们<br>c) 将它们分配回去<br><figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">using UnityEngine;</div><div class="line">using System.Collections;</div><div class="line"></div><div class="line">public class ExampleClass : MonoBehaviour &#123;</div><div class="line">    void Update() &#123;</div><div class="line">        Mesh <span class="built_in">mesh</span> = GetComponent&lt;MeshFilter&gt;().<span class="built_in">mesh</span>;</div><div class="line">        Vector3[] <span class="built_in">vertices</span> = <span class="built_in">mesh</span>.<span class="built_in">vertices</span>;</div><div class="line">        Vector3[] normals = <span class="built_in">mesh</span>.normals;</div><div class="line">        int i = <span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span> (i &lt; <span class="built_in">vertices</span>.Length) &#123;</div><div class="line">            <span class="built_in">vertices</span>[i] += normals[i] * Mathf.Sin(Time.<span class="built_in">time</span>);</div><div class="line">            i++;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">mesh</span>.<span class="built_in">vertices</span> = <span class="built_in">vertices</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>3.不断改变mesh的三角形和顶点：</strong><br>a) 调用<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">b) 指定顶点和其它属性</div><div class="line">c) 指定三角形序列</div><div class="line">在指定顶点和三角形之前一定要先调用```Clear```。Unity总是会检查所提供的三角形序列，确认它们是否没有引用越界顶点。而调用```Clear```再指定顶点和三角形可以确保你永远不会有越界数据。</div></pre></td></tr></table></figure></p>
+<p>using UnityEngine;</p>
+<p>public class ExampleClass : MonoBehaviour<br>{<br>    Vector3[] newVertices;<br>    Vector2[] newUV;<br>    int[] newTriangles;</p>
+<pre><code>void Start()
+{
+    Mesh mesh = GetComponent&lt;MeshFilter&gt;().mesh;
+
+    mesh.Clear();
+
+    // Do some calculations...
+    mesh.vertices = newVertices;
+    mesh.uv = newUV;
+    mesh.triangles = newTriangles;
+}
+</code></pre><p>}<br>```</p>
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><p><code>bindposes</code>：每一个序号的bind pose指的是相同序号的骨骼。当骨骼在绑骨状态时，bind pose是骨骼的变换矩阵的逆。<br><code>blendShapeCount</code>：返回这个mesh的blendShape数量。<br><code>boneWeights</code>：骨骼权重。<br><code>bounds</code>：mesh的包围体。<br><code>colors</code>：Mesh的顶点颜色。<br><code>colors32</code>：Mesh的顶点颜色，使用Color32结构表现会更优异。<br><code>indexFormat</code>：mesh的索引缓存数据的格式。<br><code>isReadable</code>：在模型导入后返回”Read/Write Enable”的状态。<br><code>normals</code>：Mesh的法线。<br><code>subMeshCount</code>：子Mesh的数量。每一个材质都有三角形列表。<br><code>tangents</code>：Mesh的切线。<br><code>triangles</code>：包含Mesh中所有三角形的数组。<br><code>uv</code>：Mesh的基本纹理坐标。<br><code>uv2</code>：Mesh的第二纹理坐标，如果存在的话。<br><code>uv3</code>：Mesh的第三纹理坐标，如果存在的话。<br><code>uv4</code>：Mesh的第四纹理坐标，如果存在的话。<br><code>vertexBufferCount</code>：获取Mesh中存在的顶点缓冲区数目（只读）。<br><code>vertexCount</code>：返回Mesh中顶点的数目（只读）。<br><code>vertices</code>：返回顶点位置的副本或分配一个新的顶点位置数组。</p>
+<h2 id="MeshCollider-网格碰撞器"><a href="#MeshCollider-网格碰撞器" class="headerlink" title="MeshCollider 网格碰撞器"></a>MeshCollider 网格碰撞器</h2><h3 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h3><p>你可以用mesh collider在mesh和原型之间做碰撞检测。</p>
+<h3 id="属性-1"><a href="#属性-1" class="headerlink" title="属性"></a>属性</h3><p><code>convex</code>：是否允许mesh使用convex（凸起）碰撞。（Unity默认mesh与原型之间可以发生碰撞，而mesh与mesh之间不会发生碰撞，后者若要碰撞需要指定该属性为true）<br><code>cookingOptions</code>：用这个选项来设置mesh cooking的特性？<br><code>inflateMesh</code>：是否允许物理引擎增加mesh的体积以生成更适合物理引擎的凸起mesh。<br><code>sharedMesh</code>：用于碰撞检测的mesh对象。<br><code>skinWidth</code>：当启用inflateMesh时，用于决定膨胀系数的上限。</p>
+<h2 id="MeshFilter-网格过滤器"><a href="#MeshFilter-网格过滤器" class="headerlink" title="MeshFilter 网格过滤器"></a>MeshFilter 网格过滤器</h2><h3 id="概述-2"><a href="#概述-2" class="headerlink" title="概述"></a>概述</h3><p>用于获取mesh的一个类。</p>
+<h3 id="属性-2"><a href="#属性-2" class="headerlink" title="属性"></a>属性</h3><p><code>mesh</code>：返回mesh filter的实例化mesh。<br><code>sharedMesh</code>：返回mesh filter的共享mesh。</p>
+<h2 id="MeshRenderer-网格渲染器"><a href="#MeshRenderer-网格渲染器" class="headerlink" title="MeshRenderer 网格渲染器"></a>MeshRenderer 网格渲染器</h2><h3 id="概述-3"><a href="#概述-3" class="headerlink" title="概述"></a>概述</h3><p>渲染嵌在MeshFilter或TextMesh中的mesh。</p>
+<h3 id="属性-3"><a href="#属性-3" class="headerlink" title="属性"></a>属性</h3><p><code>additionalVertexStreams</code>：这个mesh上的顶点属性会重载或添加属性在mesh renderer的mesh上。</p>
+<h2 id="BoneWeight-骨骼权重"><a href="#BoneWeight-骨骼权重" class="headerlink" title="BoneWeight 骨骼权重"></a>BoneWeight 骨骼权重</h2><h3 id="概述-4"><a href="#概述-4" class="headerlink" title="概述"></a>概述</h3><p>mesh某个顶点的蒙皮骨骼权重。<br>每个蒙皮的顶点最多受四个不同骨骼影响。所有的权重应该相加为1。权重和骨骼序号应该按权重递减顺序确定。如果一个顶点由少于四个骨骼作用，那么剩下的权重应该为0。</p>
 
         
         </div>
@@ -257,7 +281,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://hyjzref.github.io/posts/2017-09-28/cocos2dx-js 3.12 绑定技术浅探/" data-id="cje7ullwn0003mck2q5zbb6ll" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://hyjzref.github.io/posts/2018-03-03/[Unity]Mesh相关类库翻译/" data-id="cjeb0c3jb0000lck2qp8xee3c" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -332,19 +356,10 @@ var _hmt = _hmt || [];
         
 <nav id="article-nav">
     
-        <a href="/posts/2017-10-12/我的游戏开发记录/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    我的游戏开发日记
-                
-            </div>
-        </a>
     
-    
-        <a href="/posts/2017-09-25/cocos2dx-js 3.12 热更新原理/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/posts/2018-02-15/【年终总结】2017年年终总结/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">[Cocos] cocos2dx-js 3.12 热更新原理</div>
+            <div class="article-nav-title">[年终总结]2017年年终总结</div>
         </a>
     
 </nav>
@@ -489,7 +504,7 @@ var _hmt = _hmt || [];
 	<script>
 		var theme = theme;
 		var gitment = new Gitment({
-			id: '[Cocos] cocos2dx-js 3.12 绑定技术浅探',
+			id: '[Unity]Mesh相关类库文档自译',
 			owner: 'hyjzRef',
 			repo: 'hyjzRef.github.io',
 			oauth: {
