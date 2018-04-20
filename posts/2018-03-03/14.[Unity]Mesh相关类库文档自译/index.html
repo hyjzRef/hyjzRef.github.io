@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta name="baidu-site-verification" content="tqvy7RDErf" />
+    <meta name="google-site-verification" content="hjN29-PO_KfE-dgow-7hcz75xJj0qzZ6G2OkXZ3FVd8" />
+    <meta charset="utf-8">
+    
+    <title>[Unity]Mesh相关类库文档自译 | 黑夜·镜子的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Mesh 网格概述可以通过脚本代码创建或修改Mesh类。 Mesh的属性包括顶点数组和若干个三角形数组 对于每一个顶点，可以有一条法线、两个纹理坐标、颜色和切线。这些都是可选的可以随意删除。所有的顶点信息都分别存储在相同大小的数组中，如果你的mesh有十个顶点，那么你就会有十条法线和其它属性的数组。 以下三种情况你可能会想用可修改的mesh： 1.从零开始创建一个mesh：应该按照下面的顺序a)">
+<meta name="keywords" content="Unity文档">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Unity]Mesh相关类库文档自译">
+<meta property="og:url" content="http://hyjzref.github.io/posts/2018-03-03/14.[Unity]Mesh相关类库文档自译/index.html">
+<meta property="og:site_name" content="黑夜·镜子的博客">
+<meta property="og:description" content="Mesh 网格概述可以通过脚本代码创建或修改Mesh类。 Mesh的属性包括顶点数组和若干个三角形数组 对于每一个顶点，可以有一条法线、两个纹理坐标、颜色和切线。这些都是可选的可以随意删除。所有的顶点信息都分别存储在相同大小的数组中，如果你的mesh有十个顶点，那么你就会有十条法线和其它属性的数组。 以下三种情况你可能会想用可修改的mesh： 1.从零开始创建一个mesh：应该按照下面的顺序a)">
+<meta property="og:image" content="http://img.hb.aicdn.com/04d04e4e7306681354495a822f1659f88ae48990153210-Ww9jO3_fw658">
+<meta property="og:updated_time" content="2018-04-20T09:58:12.647Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Unity]Mesh相关类库文档自译">
+<meta name="twitter:description" content="Mesh 网格概述可以通过脚本代码创建或修改Mesh类。 Mesh的属性包括顶点数组和若干个三角形数组 对于每一个顶点，可以有一条法线、两个纹理坐标、颜色和切线。这些都是可选的可以随意删除。所有的顶点信息都分别存储在相同大小的数组中，如果你的mesh有十个顶点，那么你就会有十条法线和其它属性的数组。 以下三种情况你可能会想用可修改的mesh： 1.从零开始创建一个mesh：应该按照下面的顺序a)">
+<meta name="twitter:image" content="http://img.hb.aicdn.com/04d04e4e7306681354495a822f1659f88ae48990153210-Ww9jO3_fw658">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?c46a01043ed1600c61a5cf915b2e6b86";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">黑夜·镜子的博客</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">主页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于我</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/img/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">主页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于我</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/img/avatar.png" />
+            <h2 id="name">hyjz</h2>
+            <h3 id="title">记录自己的生活，表达自己的想法</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>长沙,中国</span>
+            <a id="follow" target="_blank" href="https://github.com/hyjzRef">关注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                15
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                15
+                <span>标签</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/hyjzRef" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-14.[Unity]Mesh相关类库文档自译" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            [Unity]Mesh相关类库文档自译
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/posts/2018-03-03/14.[Unity]Mesh相关类库文档自译/">
+            <time datetime="2018-03-03T06:48:00.000Z" itemprop="datePublished">2018-03-03</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Unity/">Unity</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Unity文档/">Unity文档</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><img src="http://img.hb.aicdn.com/04d04e4e7306681354495a822f1659f88ae48990153210-Ww9jO3_fw658" alt=""></p>
+<h2 id="Mesh-网格"><a href="#Mesh-网格" class="headerlink" title="Mesh 网格"></a>Mesh 网格</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>可以通过脚本代码创建或修改Mesh类。</p>
+<p>Mesh的属性包括顶点数组和若干个三角形数组</p>
+<p>对于每一个顶点，可以有一条法线、两个纹理坐标、颜色和切线。这些都是可选的可以随意删除。所有的顶点信息都分别存储在相同大小的数组中，如果你的mesh有十个顶点，那么你就会有十条法线和其它属性的数组。</p>
+<p>以下三种情况你可能会想用可修改的mesh：</p>
+<p><strong>1.从零开始创建一个mesh：</strong>应该按照下面的顺序<br>a) 指定顶点<br>b) 指定若干个三角形</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">using</span> UnityEngine;</div><div class="line"><span class="keyword">using</span> System.Collections;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExampleClass</span> : <span class="title">MonoBehaviour</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> Vector3[] <span class="keyword">new</span><span class="type">Vertices</span>;</div><div class="line">    <span class="keyword">public</span> Vector2[] <span class="keyword">new</span><span class="type">UV</span>;</div><div class="line">    <span class="keyword">public</span> int[] <span class="keyword">new</span><span class="type">Triangles</span>;</div><div class="line">    void Start() &#123;</div><div class="line">        Mesh mesh = <span class="keyword">new</span> <span class="type">Mesh</span>();</div><div class="line">        GetComponent&lt;MeshFilter&gt;().mesh = mesh;</div><div class="line">        mesh.vertices = <span class="keyword">new</span><span class="type">Vertices</span>;</div><div class="line">        mesh.uv = <span class="keyword">new</span><span class="type">UV</span>;</div><div class="line">        mesh.triangles = <span class="keyword">new</span><span class="type">Triangles</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p><strong>2.每一帧去修改顶点属性：</strong><br>a) 获取顶点<br>b) 修改它们<br>c) 将它们分配回去<br><figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">using UnityEngine;</div><div class="line">using System.Collections;</div><div class="line"></div><div class="line">public class ExampleClass : MonoBehaviour &#123;</div><div class="line">    void Update() &#123;</div><div class="line">        Mesh <span class="built_in">mesh</span> = GetComponent&lt;MeshFilter&gt;().<span class="built_in">mesh</span>;</div><div class="line">        Vector3[] <span class="built_in">vertices</span> = <span class="built_in">mesh</span>.<span class="built_in">vertices</span>;</div><div class="line">        Vector3[] normals = <span class="built_in">mesh</span>.normals;</div><div class="line">        int i = <span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span> (i &lt; <span class="built_in">vertices</span>.Length) &#123;</div><div class="line">            <span class="built_in">vertices</span>[i] += normals[i] * Mathf.Sin(Time.<span class="built_in">time</span>);</div><div class="line">            i++;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">mesh</span>.<span class="built_in">vertices</span> = <span class="built_in">vertices</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>3.不断改变mesh的三角形和顶点：</strong><br>a) 调用<strong>Clear</strong>进行一个新的开始<br>b) 指定顶点和其它属性<br>c) 指定三角形序列<br>在指定顶点和三角形之前一定要先调用<strong>Clear</strong>。Unity总是会检查所提供的三角形序列，确认它们是否没有引用越界顶点。而调用<strong>Clear</strong>再指定顶点和三角形可以确保你永远不会有越界数据。<br><figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">using</span> UnityEngine;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExampleClass</span> : <span class="title">MonoBehaviour</span></span></div><div class="line">&#123;</div><div class="line">    Vector3[] <span class="keyword">new</span><span class="type">Vertices</span>;</div><div class="line">    Vector2[] <span class="keyword">new</span><span class="type">UV</span>;</div><div class="line">    int[] <span class="keyword">new</span><span class="type">Triangles</span>;</div><div class="line"></div><div class="line">    void Start()</div><div class="line">    &#123;</div><div class="line">        Mesh mesh = GetComponent&lt;MeshFilter&gt;().mesh;</div><div class="line"></div><div class="line">        mesh.Clear();</div><div class="line"></div><div class="line">        <span class="comment">// Do some calculations...</span></div><div class="line">        mesh.vertices = <span class="keyword">new</span><span class="type">Vertices</span>;</div><div class="line">        mesh.uv = <span class="keyword">new</span><span class="type">UV</span>;</div><div class="line">        mesh.triangles = <span class="keyword">new</span><span class="type">Triangles</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><p><code>bindposes</code>：每一个序号的bind pose指的是相同序号的骨骼。当骨骼在绑骨状态时，bind pose是骨骼的变换矩阵的逆。<br><code>blendShapeCount</code>：返回这个mesh的blendShape数量。<br><code>boneWeights</code>：骨骼权重。<br><code>bounds</code>：mesh的包围体。<br><code>colors</code>：Mesh的顶点颜色。<br><code>colors32</code>：Mesh的顶点颜色，使用Color32结构表现会更优异。<br><code>indexFormat</code>：mesh的索引缓存数据的格式。<br><code>isReadable</code>：在模型导入后返回”Read/Write Enable”的状态。<br><code>normals</code>：Mesh的法线。<br><code>subMeshCount</code>：子Mesh的数量。每一个材质都有三角形列表。<br><code>tangents</code>：Mesh的切线。<br><code>triangles</code>：包含Mesh中所有三角形的数组。<br><code>uv</code>：Mesh的基本纹理坐标。<br><code>uv2</code>：Mesh的第二纹理坐标，如果存在的话。<br><code>uv3</code>：Mesh的第三纹理坐标，如果存在的话。<br><code>uv4</code>：Mesh的第四纹理坐标，如果存在的话。<br><code>vertexBufferCount</code>：获取Mesh中存在的顶点缓冲区数目（只读）。<br><code>vertexCount</code>：返回Mesh中顶点的数目（只读）。<br><code>vertices</code>：返回顶点位置的副本或分配一个新的顶点位置数组。</p>
+<h2 id="MeshCollider-网格碰撞器"><a href="#MeshCollider-网格碰撞器" class="headerlink" title="MeshCollider 网格碰撞器"></a>MeshCollider 网格碰撞器</h2><h3 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h3><p>你可以用mesh collider在mesh和原型之间做碰撞检测。</p>
+<h3 id="属性-1"><a href="#属性-1" class="headerlink" title="属性"></a>属性</h3><p><code>convex</code>：是否允许mesh使用convex（凸起）碰撞。（Unity默认mesh与原型之间可以发生碰撞，而mesh与mesh之间不会发生碰撞，后者若要碰撞需要指定该属性为true）<br><code>cookingOptions</code>：用这个选项来设置mesh cooking的特性？<br><code>inflateMesh</code>：是否允许物理引擎增加mesh的体积以生成更适合物理引擎的凸起mesh。<br><code>sharedMesh</code>：用于碰撞检测的mesh对象。<br><code>skinWidth</code>：当启用inflateMesh时，用于决定膨胀系数的上限。</p>
+<h2 id="MeshFilter-网格过滤器"><a href="#MeshFilter-网格过滤器" class="headerlink" title="MeshFilter 网格过滤器"></a>MeshFilter 网格过滤器</h2><h3 id="概述-2"><a href="#概述-2" class="headerlink" title="概述"></a>概述</h3><p>用于获取mesh的一个类。</p>
+<h3 id="属性-2"><a href="#属性-2" class="headerlink" title="属性"></a>属性</h3><p><code>mesh</code>：返回mesh filter的实例化mesh。<br><code>sharedMesh</code>：返回mesh filter的共享mesh。</p>
+<h2 id="MeshRenderer-网格渲染器"><a href="#MeshRenderer-网格渲染器" class="headerlink" title="MeshRenderer 网格渲染器"></a>MeshRenderer 网格渲染器</h2><h3 id="概述-3"><a href="#概述-3" class="headerlink" title="概述"></a>概述</h3><p>渲染嵌在MeshFilter或TextMesh中的mesh。</p>
+<h3 id="属性-3"><a href="#属性-3" class="headerlink" title="属性"></a>属性</h3><p><code>additionalVertexStreams</code>：这个mesh上的顶点属性会重载或添加属性在mesh renderer的mesh上。</p>
+<h2 id="BoneWeight-骨骼权重"><a href="#BoneWeight-骨骼权重" class="headerlink" title="BoneWeight 骨骼权重"></a>BoneWeight 骨骼权重</h2><h3 id="概述-4"><a href="#概述-4" class="headerlink" title="概述"></a>概述</h3><p>mesh某个顶点的蒙皮骨骼权重。<br>每个蒙皮的顶点最多受四个不同骨骼影响。所有的权重应该相加为1。权重和骨骼序号应该按权重递减顺序确定。如果一个顶点由少于四个骨骼作用，那么剩下的权重应该为0。</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://hyjzref.github.io/posts/2018-03-03/14.[Unity]Mesh相关类库文档自译/" data-id="cjg7t7qrs0006mok22xg4zwna" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/posts/2018-03-29/15.[CSharp]常用数据结构总结/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    [CSharp]常用数据结构总结
+                
+            </div>
+        </a>
+    
+    
+        <a href="/posts/2018-02-15/13.[年终总结]2017年年终总结/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">[年终总结]2017年年终总结</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+	<div id="commentContainer"></div>
+</section>
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/posts/2018-03-29/15.[CSharp]常用数据结构总结/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://img.hb.aicdn.com/922704c35a1c5bfcaebc7d85ee50bcf8912ab62ff8d10-S61k60_fw658)" alt="[CSharp]常用数据结构总结" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/CSharp/">CSharp</a></p>
+                            <p class="item-title"><a href="/posts/2018-03-29/15.[CSharp]常用数据结构总结/" class="title">[CSharp]常用数据结构总结</a></p>
+                            <p class="item-date"><time datetime="2018-03-29T07:47:00.000Z" itemprop="datePublished">2018-03-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/posts/2018-03-03/14.[Unity]Mesh相关类库文档自译/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://img.hb.aicdn.com/04d04e4e7306681354495a822f1659f88ae48990153210-Ww9jO3_fw658)" alt="[Unity]Mesh相关类库文档自译" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Unity/">Unity</a></p>
+                            <p class="item-title"><a href="/posts/2018-03-03/14.[Unity]Mesh相关类库文档自译/" class="title">[Unity]Mesh相关类库文档自译</a></p>
+                            <p class="item-date"><time datetime="2018-03-03T06:48:00.000Z" itemprop="datePublished">2018-03-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/posts/2018-02-15/13.[年终总结]2017年年终总结/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://img.hb.aicdn.com/5a716ecdee1c3f64c468f48b4583c234ae2d7a43169985-SHH2Mm_fw658)" alt="[年终总结]2017年年终总结" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/年终总结/">年终总结</a></p>
+                            <p class="item-title"><a href="/posts/2018-02-15/13.[年终总结]2017年年终总结/" class="title">[年终总结]2017年年终总结</a></p>
+                            <p class="item-date"><time datetime="2018-02-15T12:07:00.000Z" itemprop="datePublished">2018-02-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/posts/2018-01-07/12.[电影感想] Into The Wild/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/img/感想/img_1.jpg)" alt="[电影感想] Into The Wild" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/所得所想/">所得所想</a></p>
+                            <p class="item-title"><a href="/posts/2018-01-07/12.[电影感想] Into The Wild/" class="title">[电影感想] Into The Wild</a></p>
+                            <p class="item-date"><time datetime="2018-01-07T10:00:51.000Z" itemprop="datePublished">2018-01-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/posts/2017-10-27/11.[Cocos]Cocos2d-html & Tiled 引擎多加载一块瓷砖致使X坐标不正确/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://img.hb.aicdn.com/5bce791b3a14dc82a4007931c32f9dbf622fcedd23e3ce-cuISZl_fw658)" alt="[Cocos]Cocos2d-html &amp; Tiled 引擎多加载一块瓷砖致使X坐标不正确" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Cocos2d-js/">Cocos2d-js</a></p>
+                            <p class="item-title"><a href="/posts/2017-10-27/11.[Cocos]Cocos2d-html & Tiled 引擎多加载一块瓷砖致使X坐标不正确/" class="title">[Cocos]Cocos2d-html &amp; Tiled 引擎多加载一块瓷砖致使X坐标不正确</a></p>
+                            <p class="item-date"><time datetime="2017-10-26T16:07:00.000Z" itemprop="datePublished">2017-10-27</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSharp/">CSharp</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Cocos2d-js/">Cocos2d-js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Unity/">Unity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/年终总结/">年终总结</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/所得所想/">所得所想</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/摘抄/">摘抄</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/游戏开发记录/">游戏开发记录</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/CSharp/" style="font-size: 10px;">CSharp</a> <a href="/tags/Unity文档/" style="font-size: 10px;">Unity文档</a> <a href="/tags/bug/" style="font-size: 13.33px;">bug</a> <a href="/tags/cocos/" style="font-size: 20px;">cocos</a> <a href="/tags/fault/" style="font-size: 10px;">fault</a> <a href="/tags/声之形/" style="font-size: 10px;">声之形</a> <a href="/tags/大护法/" style="font-size: 10px;">大护法</a> <a href="/tags/开发日记/" style="font-size: 10px;">开发日记</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/感想/" style="font-size: 16.67px;">感想</a> <a href="/tags/摘抄/" style="font-size: 10px;">摘抄</a> <a href="/tags/散文/" style="font-size: 10px;">散文</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/电影感想/" style="font-size: 10px;">电影感想</a> <a href="/tags/禅语/" style="font-size: 10px;">禅语</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="https://space.bilibili.com/298856/#/">黑夜镜子的哔哩哔哩</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.zhihu.com/people/hei-jing-79/activities">黑夜镜子的知乎</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 hyjzRef<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+	<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+	<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+	<script>
+		var theme = theme;
+		var gitment = new Gitment({
+			id: '[Unity]Mesh相关类库文档自译',
+			owner: 'hyjzRef',
+			repo: 'hyjzRef.github.io',
+			oauth: {
+				client_id: '870d090bab7ca29ba3d4',
+				client_secret: '58650389143036252121e7a9f2b3e3f50842bec2',
+			},
+		})
+		gitment.render('commentContainer')
+	</script>
+	
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

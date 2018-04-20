@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta name="baidu-site-verification" content="tqvy7RDErf" />
+    <meta name="google-site-verification" content="hjN29-PO_KfE-dgow-7hcz75xJj0qzZ6G2OkXZ3FVd8" />
+    <meta charset="utf-8">
+    
+    <title>[CSharp]常用数据结构总结 | 黑夜·镜子的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="空闲下来花了几个小时时间复习整理了一下C#的常用数据结构，帮助自己以后回忆一下，全是实例。包括：  1.Array 2.ArrayList 3.List&amp;lt;T&amp;gt; 4.LinkedList&amp;lt;T&amp;gt; 5.Queue&amp;lt;T&amp;gt; 6.Stack&amp;lt;T&amp;gt; 7.Dictionary&amp;lt;T&amp;gt; 8.Hashtable 9.HashMap（.Net中没有）">
+<meta name="keywords" content="CSharp,数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[CSharp]常用数据结构总结">
+<meta property="og:url" content="http://hyjzref.github.io/posts/2018-03-29/15.[CSharp]常用数据结构总结/index.html">
+<meta property="og:site_name" content="黑夜·镜子的博客">
+<meta property="og:description" content="空闲下来花了几个小时时间复习整理了一下C#的常用数据结构，帮助自己以后回忆一下，全是实例。包括：  1.Array 2.ArrayList 3.List&amp;lt;T&amp;gt; 4.LinkedList&amp;lt;T&amp;gt; 5.Queue&amp;lt;T&amp;gt; 6.Stack&amp;lt;T&amp;gt; 7.Dictionary&amp;lt;T&amp;gt; 8.Hashtable 9.HashMap（.Net中没有）">
+<meta property="og:image" content="http://img.hb.aicdn.com/922704c35a1c5bfcaebc7d85ee50bcf8912ab62ff8d10-S61k60_fw658">
+<meta property="og:updated_time" content="2018-04-20T09:57:11.599Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[CSharp]常用数据结构总结">
+<meta name="twitter:description" content="空闲下来花了几个小时时间复习整理了一下C#的常用数据结构，帮助自己以后回忆一下，全是实例。包括：  1.Array 2.ArrayList 3.List&amp;lt;T&amp;gt; 4.LinkedList&amp;lt;T&amp;gt; 5.Queue&amp;lt;T&amp;gt; 6.Stack&amp;lt;T&amp;gt; 7.Dictionary&amp;lt;T&amp;gt; 8.Hashtable 9.HashMap（.Net中没有）">
+<meta name="twitter:image" content="http://img.hb.aicdn.com/922704c35a1c5bfcaebc7d85ee50bcf8912ab62ff8d10-S61k60_fw658">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?c46a01043ed1600c61a5cf915b2e6b86";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">黑夜·镜子的博客</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">主页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于我</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/img/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">主页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于我</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/img/avatar.png" />
+            <h2 id="name">hyjz</h2>
+            <h3 id="title">记录自己的生活，表达自己的想法</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>长沙,中国</span>
+            <a id="follow" target="_blank" href="https://github.com/hyjzRef">关注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                15
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                15
+                <span>标签</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/hyjzRef" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-15.[CSharp]常用数据结构总结" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            [CSharp]常用数据结构总结
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/posts/2018-03-29/15.[CSharp]常用数据结构总结/">
+            <time datetime="2018-03-29T07:47:00.000Z" itemprop="datePublished">2018-03-29</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/CSharp/">CSharp</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/CSharp/">CSharp</a>, <a class="tag-link" href="/tags/数据结构/">数据结构</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><img src="http://img.hb.aicdn.com/922704c35a1c5bfcaebc7d85ee50bcf8912ab62ff8d10-S61k60_fw658" alt=""><br>空闲下来花了几个小时时间复习整理了一下C#的常用数据结构，帮助自己以后回忆一下，全是实例。<br>包括：</p>
+<ul>
+<li>1.Array</li>
+<li>2.ArrayList</li>
+<li>3.List&lt;T&gt;</li>
+<li>4.LinkedList&lt;T&gt;</li>
+<li>5.Queue&lt;T&gt;</li>
+<li>6.Stack&lt;T&gt;</li>
+<li>7.Dictionary&lt;T&gt;</li>
+<li>8.Hashtable</li>
+<li>9.HashMap（.Net中没有）<a id="more"></a>
+</li>
+</ul>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">using</span> System;</div><div class="line"><span class="keyword">using</span> System.Collections;</div><div class="line"><span class="keyword">using</span> System.Collections.Generic;</div><div class="line"><span class="keyword">using</span> System.Linq;</div><div class="line"><span class="keyword">using</span> System.Text;</div><div class="line"><span class="keyword">using</span> System.Threading.Tasks;</div><div class="line"></div><div class="line">class Program</div><div class="line">&#123;</div><div class="line"><span class="keyword">static</span> <span class="keyword">void</span> Main(<span class="keyword">string</span>[] args)</div><div class="line">&#123;</div><div class="line">    <span class="comment">// 1 Array，有如下特点：</span></div><div class="line">    <span class="comment">//      1.)数组存储在连续内存上</span></div><div class="line">    <span class="comment">//      2.)数组中内容类型相同</span></div><div class="line">    <span class="comment">//      3.)数组长度无法改变</span></div><div class="line">    <span class="comment">// 1.1 新建Array</span></div><div class="line">    <span class="keyword">int</span>[] array1 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>];</div><div class="line"></div><div class="line">    <span class="keyword">int</span>[] array2 = &#123; <span class="number">0</span>, <span class="number">1</span> &#125;;</div><div class="line"></div><div class="line">    <span class="keyword">int</span>[] array3 = <span class="keyword">new</span> <span class="keyword">int</span>[] &#123; <span class="number">2</span>, <span class="number">3</span> &#125;;</div><div class="line"></div><div class="line">    <span class="comment">// 1.2 遍历访问Array</span></div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">"1.2.1) 使用for循环遍历array2"</span>);</div><div class="line">    <span class="built_in">for</span> (var i = <span class="number">0</span>; i &lt; array2.Length; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">Console</span>.WriteLine(array2[i]);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">"1.2.2) 使用foreach循环遍历array2"</span>);</div><div class="line">    foreach (var a in array2)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">Console</span>.WriteLine(a);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 2 ArrayList,特点:</span></div><div class="line">    <span class="comment">//      1.)数组中内容类型都为Object,类型不安全，有装箱拆箱操作</span></div><div class="line">    <span class="comment">//      2.)数组长度为动态</span></div><div class="line">    <span class="comment">// 2.1 新建ArrayList</span></div><div class="line">    ArrayList arraylist1 = <span class="keyword">new</span> ArrayList();</div><div class="line">    arraylist1.Add(<span class="number">123</span>);</div><div class="line">    arraylist1.Add(<span class="string">"abc"</span>);</div><div class="line">    arraylist1.Add(<span class="number">456</span>);</div><div class="line">    <span class="comment">// 2.2 遍历访问</span></div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">"2.2) 遍历访问arraylist2"</span>);</div><div class="line">    <span class="built_in">for</span> (var i = <span class="number">0</span>; i &lt; arraylist1.Count; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">Console</span>.Write(arraylist1[i].ToString() + <span class="string">'|'</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 2.3 删除元素</span></div><div class="line">    arraylist1.RemoveAt(<span class="number">1</span>);</div><div class="line">    <span class="comment">// 2.4 清空元素</span></div><div class="line">    <span class="comment">//arraylist1.Clear();</span></div><div class="line">    <span class="comment">// 2.5 转换为数组</span></div><div class="line">    object[] arrayObj = </div><div class="line">        (object[])arraylist1.ToArray(typeof(object));</div><div class="line"></div><div class="line">    <span class="comment">// 3 List&lt;T&gt;，代替ArrayList经常被使用，特点：</span></div><div class="line">    <span class="comment">//      1.)继承自IList，支持泛型，所以类型转换是安全的</span></div><div class="line">    <span class="comment">//      2.)数组长度为动态</span></div><div class="line">    <span class="comment">// 3.1 新建List</span></div><div class="line">    List&lt;<span class="keyword">string</span>&gt; list1 = <span class="keyword">new</span> List&lt;<span class="keyword">string</span>&gt;();</div><div class="line">    <span class="keyword">string</span>[] strArray = &#123; <span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>, <span class="string">"d"</span> &#125;;</div><div class="line">    List&lt;<span class="keyword">string</span>&gt; list2 = <span class="keyword">new</span> List&lt;<span class="keyword">string</span>&gt;(strArray);</div><div class="line">    <span class="comment">// 3.2 遍历访问</span></div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">""</span>);</div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">"3.2) 遍历访问list2"</span>);</div><div class="line">    <span class="built_in">for</span> (var i = <span class="number">0</span>; i &lt; list2.Count; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">Console</span>.Write(list2[i] + <span class="string">'|'</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 3.3 添加元素</span></div><div class="line">    list2.Add(<span class="string">"e"</span>);</div><div class="line">    <span class="comment">// 3.4 删除元素</span></div><div class="line">    list2.Remove(<span class="string">"a"</span>);</div><div class="line">    <span class="comment">// 3.5 是否包含元素</span></div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">""</span>);</div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">"3.5) list2中是否包含'b':"</span> + list2.Contains(<span class="string">"b"</span>));</div><div class="line">    <span class="comment">// 3.6 Find 查找元素，找到第一个匹配项时结束，算是3.5的升级版</span></div><div class="line">    <span class="keyword">string</span> result1 = list2.Find(str =&gt; str == <span class="string">"c"</span>);</div><div class="line">    <span class="keyword">string</span> result2 = list2.Find(str =&gt; &#123;</div><div class="line">        <span class="built_in">if</span> (str == <span class="string">"c"</span>) <span class="built_in">return</span> true;</div><div class="line">        <span class="built_in">else</span> <span class="built_in">return</span> false;</div><div class="line">    &#125;);</div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">"3.6) list2中查找'c':"</span> + result2);</div><div class="line">    <span class="comment">// 3.7 查找元素序号</span></div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">"3.7) list2中查找'c'的序号:"</span> + list2.IndexOf(<span class="string">"c"</span>));</div><div class="line">    <span class="comment">// 3.8 清空元素</span></div><div class="line">    <span class="comment">//list2.Clear();</span></div><div class="line">    <span class="comment">// 3.9 TrueForAll 检查是否所有元素都满足条件</span></div><div class="line">    <span class="keyword">bool</span> result3 = list2.TrueForAll(str =&gt; &#123;</div><div class="line">        <span class="built_in">if</span> (str is <span class="keyword">string</span>) <span class="built_in">return</span> true;</div><div class="line">        <span class="built_in">else</span> <span class="built_in">return</span> false;</div><div class="line">    &#125;);</div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">"3.9) list2是否所有元素都为string:"</span> + result3);</div><div class="line">    <span class="comment">// 3.10 Take 取List中部分数据</span></div><div class="line">    IEnumerable&lt;<span class="keyword">string</span>&gt; takeList = list2.Take(<span class="number">2</span>);</div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">"3.10) 取出list2中前两个数据:"</span>);</div><div class="line">    foreach(<span class="keyword">string</span> str in takeList)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">Console</span>.Write(str + <span class="string">"|"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">""</span>);</div><div class="line">    <span class="comment">// 3.11 Where 检查并返回所有满足条件的元素</span></div><div class="line">    IEnumerable&lt;<span class="keyword">string</span>&gt; whereList = list2.Where(str =&gt; &#123;</div><div class="line">        <span class="built_in">if</span> (str == <span class="string">"c"</span> || str == <span class="string">"d"</span>) <span class="built_in">return</span> true;</div><div class="line">        <span class="built_in">else</span> <span class="built_in">return</span> false;</div><div class="line">    &#125;);</div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">"3.11) 取出list2中为'c'或者'd'的元素:"</span>);</div><div class="line">    foreach (<span class="keyword">string</span> str in whereList)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">Console</span>.Write(str + <span class="string">"|"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">""</span>);</div><div class="line">    <span class="comment">// 3.12 转换为数组</span></div><div class="line">    <span class="keyword">string</span>[] strArray2 = list2.ToArray();</div><div class="line"></div><div class="line">    <span class="comment">// 4 LinkedList&lt;T&gt;，又叫双向链表，特点：</span></div><div class="line">    <span class="comment">//      1.)每个元素都含有上一个元素和下一个元素的位置，首尾除外</span></div><div class="line">    <span class="comment">//      2.)增删元素非常迅速，但查找元素并不快</span></div><div class="line">    <span class="comment">//      3.)支持泛型，类型安全</span></div><div class="line">    <span class="comment">// 4.1 创建链表</span></div><div class="line">    LinkedList&lt;<span class="keyword">string</span>&gt; linkList1 = <span class="keyword">new</span> LinkedList&lt;<span class="keyword">string</span>&gt;(strArray);</div><div class="line">    <span class="comment">// 4.2 添加元素</span></div><div class="line">    linkList1.AddLast(<span class="string">"e"</span>);</div><div class="line">    <span class="comment">// 4.3 遍历元素</span></div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">"4.3) 遍历linkList1中的元素:"</span>);</div><div class="line">    foreach (<span class="keyword">string</span> str in linkList1)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">Console</span>.Write(str + <span class="string">"|"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">""</span>);</div><div class="line">    <span class="comment">// 4.4 取出元素</span></div><div class="line">    LinkedListNode&lt;<span class="keyword">string</span>&gt; firstLinkedNode = linkList1.First;</div><div class="line">    LinkedListNode&lt;<span class="keyword">string</span>&gt; lastLinkedNode = linkList1.Last;</div><div class="line">    <span class="comment">// 4.5 查找元素</span></div><div class="line">    LinkedListNode&lt;<span class="keyword">string</span>&gt; resultLinkedNode = linkList1.Find(<span class="string">"e"</span>);</div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">"4.5) 查找linkList1中的'e':"</span> + resultLinkedNode.Value);</div><div class="line">    <span class="comment">// 4.6 删除元素</span></div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">"4.6) 删除linkList1中的'e':"</span> + linkList1.Remove(<span class="string">"e"</span>));</div><div class="line">    <span class="comment">// 4.7 是否包含元素</span></div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">"4.7) linkList1中是否有'e':"</span> + linkList1.Contains(<span class="string">"e"</span>));</div><div class="line">    <span class="comment">// 4.8 清空元素</span></div><div class="line">    linkList1.Clear();</div><div class="line"></div><div class="line">    <span class="comment">// 5 Queue&lt;T&gt;，又叫队列，特点：</span></div><div class="line">    <span class="comment">//      1.)元素存放顺序按照先进先出原则</span></div><div class="line">    <span class="comment">//      2.)支持泛型，类型安全</span></div><div class="line">    <span class="comment">// 5.1 创建队列</span></div><div class="line">    Queue&lt;<span class="keyword">string</span>&gt; queue1 = <span class="keyword">new</span> Queue&lt;<span class="keyword">string</span>&gt;(strArray);</div><div class="line">    <span class="comment">// 5.2 添加元素,只能加在末尾</span></div><div class="line">    queue1.Enqueue(<span class="string">"e"</span>);</div><div class="line">    <span class="comment">// 5.3 遍历元素，一般来说队列和堆栈都不需要遍历</span></div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">"5.3) 遍历linkList1中的元素:"</span>);</div><div class="line">    foreach (<span class="keyword">string</span> str in queue1)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">Console</span>.Write(str + <span class="string">"|"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">""</span>);</div><div class="line">    <span class="comment">// 5.4 获取开头的元素，并且移出队列</span></div><div class="line">    <span class="keyword">string</span> lastQueueNode = queue1.Dequeue();</div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">"5.4) 获取并移除queue1中开头的元素:&#123;0&#125;"</span>,lastQueueNode);</div><div class="line">    <span class="comment">// 5.5 获取开头的元素，但不把它移出队列</span></div><div class="line">    <span class="keyword">string</span> lastQueueNode2 = queue1.Peek();</div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">"5.5) 获取queue1中开头的元素:&#123;0&#125;"</span>, lastQueueNode2);</div><div class="line">    <span class="comment">// 5.6 拷贝一份数据到数组</span></div><div class="line">    <span class="keyword">string</span>[] toExchangeArray = <span class="keyword">new</span> <span class="keyword">string</span>[queue1.Count];</div><div class="line">    queue1.CopyTo(toExchangeArray, <span class="number">0</span>);</div><div class="line"></div><div class="line">    <span class="comment">// 6 Stack&lt;T&gt;，又叫堆栈，特点：</span></div><div class="line">    <span class="comment">//      1.)元素存放顺序按照先进后出原则</span></div><div class="line">    <span class="comment">//      2.)支持泛型，类型安全</span></div><div class="line">    <span class="comment">// 6.1 创建堆栈</span></div><div class="line">    Stack&lt;<span class="keyword">string</span>&gt; stack1 = <span class="keyword">new</span> Stack&lt;<span class="keyword">string</span>&gt;(strArray);</div><div class="line">    <span class="comment">// 6.2 添加元素，只能加在栈顶</span></div><div class="line">    stack1.Push(<span class="string">"e"</span>);</div><div class="line">    <span class="comment">// 6.3 取出并且移出栈顶的元素</span></div><div class="line">    <span class="keyword">string</span> firstStackNode = stack1.Pop();</div><div class="line">    <span class="comment">// 6.4 取出栈顶的元素</span></div><div class="line">    <span class="keyword">string</span> firstStackNode2 = stack1.Peek();</div><div class="line">    <span class="comment">// 6.5 拷贝一份数据到数组</span></div><div class="line">    <span class="keyword">string</span>[] toExchangeArray2 = <span class="keyword">new</span> <span class="keyword">string</span>[stack1.Count];</div><div class="line">    stack1.CopyTo(toExchangeArray, <span class="number">0</span>);</div><div class="line"></div><div class="line">    <span class="comment">// 7 Dictionary&lt;T&gt;，中文叫做字典，特点：</span></div><div class="line">    <span class="comment">//      1.)每一组数据为了一个键值对，支持泛型，为类型安全的</span></div><div class="line">    <span class="comment">//      2.)任何键都是唯一的</span></div><div class="line">    <span class="comment">//      3.)字典长度为动态的</span></div><div class="line">    <span class="comment">//      4.)内部使用哈希表存储，内存不是连续的区域，但遍历时会按照Add的顺序排列</span></div><div class="line">    <span class="comment">//      5.)它是非线程安全的，若要在多线程中读取，请使用HashTable</span></div><div class="line">    <span class="comment">// 7.1 创建Dictionary</span></div><div class="line">    Dictionary&lt;<span class="keyword">string</span>, <span class="keyword">string</span>&gt; dic1 = <span class="keyword">new</span> Dictionary&lt;<span class="keyword">string</span>, <span class="keyword">string</span>&gt;();</div><div class="line">    <span class="comment">// 7.2 添加元素</span></div><div class="line">    dic1.Add(<span class="string">"a"</span>, <span class="string">"abc"</span>);</div><div class="line">    dic1.Add(<span class="string">"b"</span>, <span class="string">"bcd"</span>);</div><div class="line">    dic1.Add(<span class="string">"c"</span>, <span class="string">"cde"</span>);</div><div class="line">    dic1.Add(<span class="string">"d"</span>, <span class="string">"def"</span>);</div><div class="line">    <span class="comment">// 7.3 删除元素</span></div><div class="line">    dic1.Remove(<span class="string">"d"</span>);</div><div class="line">    <span class="comment">// 7.4 按键值对遍历访问</span></div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">"7.4) 根据键值对遍历字典中的元素"</span>);</div><div class="line">    foreach(KeyValuePair&lt;<span class="keyword">string</span>, <span class="keyword">string</span>&gt; pair in dic1)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">Console</span>.Write(pair.Key + <span class="string">","</span> + pair.Value + <span class="string">"|"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">""</span>);</div><div class="line">    <span class="comment">// 7.5 按键遍历访问</span></div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">"7.5) 根据键遍历字典中的Key值"</span>);</div><div class="line">    Dictionary&lt;<span class="keyword">string</span>, <span class="keyword">string</span>&gt;.KeyCollection keys = dic1.Keys;</div><div class="line">    foreach (<span class="keyword">string</span> key in keys)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">Console</span>.Write(key + <span class="string">"|"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">""</span>);</div><div class="line">    <span class="comment">// 7.6 按值遍历访问</span></div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">"7.6) 根据值遍历字典中的Value值"</span>);</div><div class="line">    Dictionary&lt;<span class="keyword">string</span>, <span class="keyword">string</span>&gt;.ValueCollection values = dic1.Values;</div><div class="line">    foreach (<span class="keyword">string</span> value in values)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">Console</span>.Write(value + <span class="string">"|"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">""</span>);</div><div class="line">    <span class="comment">// 7.7 是否包含键Key值</span></div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">"7.7) dic1中是否包含'a':"</span> + dic1.ContainsKey(<span class="string">"a"</span>));</div><div class="line">    <span class="comment">// 7.8 字典长度</span></div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">"7.8) dic1的长度为:"</span> + dic1.Count);</div><div class="line">    <span class="comment">// 7.9 根据Key值获取Value值</span></div><div class="line">    <span class="keyword">string</span> value2;</div><div class="line">    dic1.TryGetValue(<span class="string">"a"</span>, out value2);</div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">"7.9) 'a'的Value为:"</span> + value2);</div><div class="line"></div><div class="line">    <span class="comment">// 8 Hashtable，又叫哈希表、散列表，基本操作与字典相同，特点：</span></div><div class="line">    <span class="comment">//      1.)每一组数据为了一个键值对，键值对的类型都为object</span></div><div class="line">    <span class="comment">//      2.)任何键都是唯一的</span></div><div class="line">    <span class="comment">//      3.)哈希表长度为动态的</span></div><div class="line">    <span class="comment">//      4.)内部使用哈希表存储，内存不是连续的区域，遍历时也不是按照Add的顺序排列</span></div><div class="line">    <span class="comment">//      5.)它单线程可写，多线程可读，是线程安全的</span></div><div class="line">    <span class="comment">// 8.1 创建Hashtable</span></div><div class="line">    Hashtable table1 = <span class="keyword">new</span> Hashtable();</div><div class="line">    <span class="comment">// 8.2 添加元素</span></div><div class="line">    table1.Add(<span class="string">"a"</span>, <span class="string">"abc"</span>);</div><div class="line">    table1.Add(<span class="string">"b"</span>, <span class="string">"bcd"</span>);</div><div class="line">    table1.Add(<span class="string">"c"</span>, <span class="string">"cde"</span>);</div><div class="line">    table1.Add(<span class="string">"d"</span>, <span class="string">"def"</span>);</div><div class="line">    <span class="comment">// 8.3 按键值对遍历访问</span></div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">"8.3) 根据键值对遍历哈希表中的元素"</span>);</div><div class="line">    foreach (DictionaryEntry entry in table1)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">Console</span>.Write(entry.Key + <span class="string">","</span> + entry.Value + <span class="string">"|"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">""</span>);</div><div class="line">    <span class="comment">// 8.4 按键遍历访问</span></div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">"8.4) 根据键遍历字典中的Key值"</span>);</div><div class="line">    ICollection keys2 = table1.Keys;</div><div class="line">    foreach (<span class="keyword">string</span> key in keys2)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">Console</span>.Write(key + <span class="string">"|"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">""</span>);</div><div class="line">    <span class="comment">// 8.5 按值遍历访问</span></div><div class="line">    <span class="built_in">Console</span>.WriteLine(<span class="string">"8.5) 根据值遍历字典中的Value值"</span>);</div><div class="line">    ICollection values2 = table1.Values;</div><div class="line">    foreach (<span class="keyword">string</span> value in values2)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">Console</span>.Write(value + <span class="string">"|"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 9 HashMap，存在于Java语法中，.Net中并没有这个类。其与Hashtable的区别点主要是：</span></div><div class="line">    <span class="comment">//      1.)非同步，线程不安全的</span></div><div class="line">    <span class="comment">//      2.)可以存Null键和Null值，而Hashtable不可以存Null键           </span></div><div class="line">    <span class="built_in">while</span> (true) &#123; &#125;;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://hyjzref.github.io/posts/2018-03-29/15.[CSharp]常用数据结构总结/" data-id="cjg7t7qrv0009mok2dg352kvm" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/posts/2018-03-03/14.[Unity]Mesh相关类库文档自译/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">[Unity]Mesh相关类库文档自译</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+	<div id="commentContainer"></div>
+</section>
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/posts/2018-03-29/15.[CSharp]常用数据结构总结/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://img.hb.aicdn.com/922704c35a1c5bfcaebc7d85ee50bcf8912ab62ff8d10-S61k60_fw658)" alt="[CSharp]常用数据结构总结" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/CSharp/">CSharp</a></p>
+                            <p class="item-title"><a href="/posts/2018-03-29/15.[CSharp]常用数据结构总结/" class="title">[CSharp]常用数据结构总结</a></p>
+                            <p class="item-date"><time datetime="2018-03-29T07:47:00.000Z" itemprop="datePublished">2018-03-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/posts/2018-03-03/14.[Unity]Mesh相关类库文档自译/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://img.hb.aicdn.com/04d04e4e7306681354495a822f1659f88ae48990153210-Ww9jO3_fw658)" alt="[Unity]Mesh相关类库文档自译" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Unity/">Unity</a></p>
+                            <p class="item-title"><a href="/posts/2018-03-03/14.[Unity]Mesh相关类库文档自译/" class="title">[Unity]Mesh相关类库文档自译</a></p>
+                            <p class="item-date"><time datetime="2018-03-03T06:48:00.000Z" itemprop="datePublished">2018-03-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/posts/2018-02-15/13.[年终总结]2017年年终总结/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://img.hb.aicdn.com/5a716ecdee1c3f64c468f48b4583c234ae2d7a43169985-SHH2Mm_fw658)" alt="[年终总结]2017年年终总结" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/年终总结/">年终总结</a></p>
+                            <p class="item-title"><a href="/posts/2018-02-15/13.[年终总结]2017年年终总结/" class="title">[年终总结]2017年年终总结</a></p>
+                            <p class="item-date"><time datetime="2018-02-15T12:07:00.000Z" itemprop="datePublished">2018-02-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/posts/2018-01-07/12.[电影感想] Into The Wild/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/img/感想/img_1.jpg)" alt="[电影感想] Into The Wild" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/所得所想/">所得所想</a></p>
+                            <p class="item-title"><a href="/posts/2018-01-07/12.[电影感想] Into The Wild/" class="title">[电影感想] Into The Wild</a></p>
+                            <p class="item-date"><time datetime="2018-01-07T10:00:51.000Z" itemprop="datePublished">2018-01-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/posts/2017-10-27/11.[Cocos]Cocos2d-html & Tiled 引擎多加载一块瓷砖致使X坐标不正确/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://img.hb.aicdn.com/5bce791b3a14dc82a4007931c32f9dbf622fcedd23e3ce-cuISZl_fw658)" alt="[Cocos]Cocos2d-html &amp; Tiled 引擎多加载一块瓷砖致使X坐标不正确" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Cocos2d-js/">Cocos2d-js</a></p>
+                            <p class="item-title"><a href="/posts/2017-10-27/11.[Cocos]Cocos2d-html & Tiled 引擎多加载一块瓷砖致使X坐标不正确/" class="title">[Cocos]Cocos2d-html &amp; Tiled 引擎多加载一块瓷砖致使X坐标不正确</a></p>
+                            <p class="item-date"><time datetime="2017-10-26T16:07:00.000Z" itemprop="datePublished">2017-10-27</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSharp/">CSharp</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Cocos2d-js/">Cocos2d-js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Unity/">Unity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/年终总结/">年终总结</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/所得所想/">所得所想</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/摘抄/">摘抄</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/游戏开发记录/">游戏开发记录</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/CSharp/" style="font-size: 10px;">CSharp</a> <a href="/tags/Unity文档/" style="font-size: 10px;">Unity文档</a> <a href="/tags/bug/" style="font-size: 13.33px;">bug</a> <a href="/tags/cocos/" style="font-size: 20px;">cocos</a> <a href="/tags/fault/" style="font-size: 10px;">fault</a> <a href="/tags/声之形/" style="font-size: 10px;">声之形</a> <a href="/tags/大护法/" style="font-size: 10px;">大护法</a> <a href="/tags/开发日记/" style="font-size: 10px;">开发日记</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/感想/" style="font-size: 16.67px;">感想</a> <a href="/tags/摘抄/" style="font-size: 10px;">摘抄</a> <a href="/tags/散文/" style="font-size: 10px;">散文</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/电影感想/" style="font-size: 10px;">电影感想</a> <a href="/tags/禅语/" style="font-size: 10px;">禅语</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="https://space.bilibili.com/298856/#/">黑夜镜子的哔哩哔哩</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.zhihu.com/people/hei-jing-79/activities">黑夜镜子的知乎</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 hyjzRef<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+	<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+	<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+	<script>
+		var theme = theme;
+		var gitment = new Gitment({
+			id: '[CSharp]常用数据结构总结',
+			owner: 'hyjzRef',
+			repo: 'hyjzRef.github.io',
+			oauth: {
+				client_id: '870d090bab7ca29ba3d4',
+				client_secret: '58650389143036252121e7a9f2b3e3f50842bec2',
+			},
+		})
+		gitment.render('commentContainer')
+	</script>
+	
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

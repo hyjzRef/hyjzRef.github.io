@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta name="baidu-site-verification" content="tqvy7RDErf" />
+    <meta name="google-site-verification" content="hjN29-PO_KfE-dgow-7hcz75xJj0qzZ6G2OkXZ3FVd8" />
+    <meta charset="utf-8">
+    
+    <title>我的游戏开发日记 | 黑夜·镜子的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="2017.10.12涂鸦时突然脑门一热，胸腔突然跟上燃起滚滚热血，全身突然一个激灵振起，JOJO！（~~老子不做人了！）老子要做游戏了！啊，莫名就开始了。。。2017.11.06 除去玩游戏、看漫画和睡懒觉业余时间是真的不多，不对，这么想想时间还是蛮多的。想来想去决定开始的时候还是选择自己算熟悉的 Cocos 引擎，这将近一个月的时间干这么些事：1.搭建开发环境包括 Cocos 引擎、Coc">
+<meta name="keywords" content="开发日记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我的游戏开发日记">
+<meta property="og:url" content="http://hyjzref.github.io/posts/2017-10-12/9.我的游戏开发日记/index.html">
+<meta property="og:site_name" content="黑夜·镜子的博客">
+<meta property="og:description" content="2017.10.12涂鸦时突然脑门一热，胸腔突然跟上燃起滚滚热血，全身突然一个激灵振起，JOJO！（~~老子不做人了！）老子要做游戏了！啊，莫名就开始了。。。2017.11.06 除去玩游戏、看漫画和睡懒觉业余时间是真的不多，不对，这么想想时间还是蛮多的。想来想去决定开始的时候还是选择自己算熟悉的 Cocos 引擎，这将近一个月的时间干这么些事：1.搭建开发环境包括 Cocos 引擎、Coc">
+<meta property="og:image" content="http://img.hb.aicdn.com/d7b2253681e823cec21c0f2106c7cf5d0b96ad5b17637e-jaJML4_fw658">
+<meta property="og:image" content="http://hyjzref.github.io/img/record/img_1.gif">
+<meta property="og:image" content="http://hyjzref.github.io/img/record/galdemo_1.png">
+<meta property="og:image" content="http://hyjzref.github.io/img/record/galdemo_2.png">
+<meta property="og:updated_time" content="2018-04-20T10:23:50.630Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="我的游戏开发日记">
+<meta name="twitter:description" content="2017.10.12涂鸦时突然脑门一热，胸腔突然跟上燃起滚滚热血，全身突然一个激灵振起，JOJO！（~~老子不做人了！）老子要做游戏了！啊，莫名就开始了。。。2017.11.06 除去玩游戏、看漫画和睡懒觉业余时间是真的不多，不对，这么想想时间还是蛮多的。想来想去决定开始的时候还是选择自己算熟悉的 Cocos 引擎，这将近一个月的时间干这么些事：1.搭建开发环境包括 Cocos 引擎、Coc">
+<meta name="twitter:image" content="http://img.hb.aicdn.com/d7b2253681e823cec21c0f2106c7cf5d0b96ad5b17637e-jaJML4_fw658">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?c46a01043ed1600c61a5cf915b2e6b86";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">黑夜·镜子的博客</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">主页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于我</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/img/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">主页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于我</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/img/avatar.png" />
+            <h2 id="name">hyjz</h2>
+            <h3 id="title">记录自己的生活，表达自己的想法</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>长沙,中国</span>
+            <a id="follow" target="_blank" href="https://github.com/hyjzRef">关注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                15
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                15
+                <span>标签</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/hyjzRef" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-9.我的游戏开发日记" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            我的游戏开发日记
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/posts/2017-10-12/9.我的游戏开发日记/">
+            <time datetime="2017-10-11T16:00:00.000Z" itemprop="datePublished">2017-10-12</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/游戏开发记录/">游戏开发记录</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/开发日记/">开发日记</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><img src="http://img.hb.aicdn.com/d7b2253681e823cec21c0f2106c7cf5d0b96ad5b17637e-jaJML4_fw658" alt="">  </p>
+<font face="黑体"><br><h4>2017.10.12</h4>涂鸦时突然脑门一热，胸腔突然跟上燃起滚滚热血，全身突然一个激灵振起，JOJO！（~~老子不做人了！）老子要做游戏了！<br>啊，莫名就开始了。。。<br><br><h4>2017.11.06</h4> 除去玩游戏、看漫画和睡懒觉业余时间是真的不多，不对，这么想想时间还是蛮多的。<br>想来想去决定开始的时候还是选择自己算熟悉的 Cocos 引擎，这将近一个月的时间干这么些事：<br>1.搭建开发环境包括 Cocos 引擎、CocosStudio 编辑器和 ADK、SDK 等；<br>2.在网上寻找下载合适的美术资源；  <a id="more"></a><br>3.选择游戏工具链：<br>- Tiled:地图编辑器<br>- TexturePacker：图片打包工具；<br>- ShoeBox：图集处理工具，百度“动态图片基地”更好用；<br>- Pdplayer：帧动画编辑器；<br>- 不知名的 bmp 转 png 转换器：可以去掉 bmp 的黑底并且为 png 保留透明像素，真心好用。<br>4.发现了一个 Cocos-html 上运 行Tiled 的 Bug，加载出来的图块计算X格子数会多加上一，emm。。。百度了一圈没想到都没人提到过这个Bug，花了好几个晚上才解决就另开了一篇<a href="/cocos2d-html &amp; Tiled 一次Bug发现与解决.html">文章</a>写了。<br>5.花了蛮大的功夫才写了点样子——摇杆控制角色状态变化。（实际编写游戏才发现自己在框架模式上知识的匮乏程度，还需加油啊(・`ω´･)）<br>最后，附上见笑的效果图：<br><img src="/img/record/img_1.gif" alt="摇杆"><br>打算以后做成一个2D横版闯关游戏，今天就先撤了，人感冒了有点飘~。<br><br><h4>2017.12.02</h4><br>实力太菜，坑挖在这，哪个时候变强了…再填<br><br><h4>2018.04.20</h4><br>花了一天半的时间做了一个GalGame的Demo，苦恼于脑子想不出啥剧情。。。<br><img src="/img/record/galdemo_1.png" alt="哇哇哇"><br><img src="/img/record/galdemo_2.png" alt="真香"><br></font>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://hyjzref.github.io/posts/2017-10-12/9.我的游戏开发日记/" data-id="cjg7t7qse000omok2ibf6121t" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/posts/2017-10-18/10.[Cocos] make.exe  bug/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    [Cocos] make.exe: *** No rule to make target 错误原因与解决方案
+                
+            </div>
+        </a>
+    
+    
+        <a href="/posts/2017-09-28/8.[Cocos] cocos2dx-js 3.12 绑定技术浅探/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">[Cocos] cocos2dx-js 3.12 绑定技术浅探</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+	<div id="commentContainer"></div>
+</section>
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/posts/2018-03-29/15.[CSharp]常用数据结构总结/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://img.hb.aicdn.com/922704c35a1c5bfcaebc7d85ee50bcf8912ab62ff8d10-S61k60_fw658)" alt="[CSharp]常用数据结构总结" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/CSharp/">CSharp</a></p>
+                            <p class="item-title"><a href="/posts/2018-03-29/15.[CSharp]常用数据结构总结/" class="title">[CSharp]常用数据结构总结</a></p>
+                            <p class="item-date"><time datetime="2018-03-29T07:47:00.000Z" itemprop="datePublished">2018-03-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/posts/2018-03-03/14.[Unity]Mesh相关类库文档自译/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://img.hb.aicdn.com/04d04e4e7306681354495a822f1659f88ae48990153210-Ww9jO3_fw658)" alt="[Unity]Mesh相关类库文档自译" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Unity/">Unity</a></p>
+                            <p class="item-title"><a href="/posts/2018-03-03/14.[Unity]Mesh相关类库文档自译/" class="title">[Unity]Mesh相关类库文档自译</a></p>
+                            <p class="item-date"><time datetime="2018-03-03T06:48:00.000Z" itemprop="datePublished">2018-03-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/posts/2018-02-15/13.[年终总结]2017年年终总结/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://img.hb.aicdn.com/5a716ecdee1c3f64c468f48b4583c234ae2d7a43169985-SHH2Mm_fw658)" alt="[年终总结]2017年年终总结" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/年终总结/">年终总结</a></p>
+                            <p class="item-title"><a href="/posts/2018-02-15/13.[年终总结]2017年年终总结/" class="title">[年终总结]2017年年终总结</a></p>
+                            <p class="item-date"><time datetime="2018-02-15T12:07:00.000Z" itemprop="datePublished">2018-02-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/posts/2018-01-07/12.[电影感想] Into The Wild/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/img/感想/img_1.jpg)" alt="[电影感想] Into The Wild" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/所得所想/">所得所想</a></p>
+                            <p class="item-title"><a href="/posts/2018-01-07/12.[电影感想] Into The Wild/" class="title">[电影感想] Into The Wild</a></p>
+                            <p class="item-date"><time datetime="2018-01-07T10:00:51.000Z" itemprop="datePublished">2018-01-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/posts/2017-10-27/11.[Cocos]Cocos2d-html & Tiled 引擎多加载一块瓷砖致使X坐标不正确/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://img.hb.aicdn.com/5bce791b3a14dc82a4007931c32f9dbf622fcedd23e3ce-cuISZl_fw658)" alt="[Cocos]Cocos2d-html &amp; Tiled 引擎多加载一块瓷砖致使X坐标不正确" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Cocos2d-js/">Cocos2d-js</a></p>
+                            <p class="item-title"><a href="/posts/2017-10-27/11.[Cocos]Cocos2d-html & Tiled 引擎多加载一块瓷砖致使X坐标不正确/" class="title">[Cocos]Cocos2d-html &amp; Tiled 引擎多加载一块瓷砖致使X坐标不正确</a></p>
+                            <p class="item-date"><time datetime="2017-10-26T16:07:00.000Z" itemprop="datePublished">2017-10-27</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSharp/">CSharp</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Cocos2d-js/">Cocos2d-js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Unity/">Unity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/年终总结/">年终总结</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/所得所想/">所得所想</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/摘抄/">摘抄</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/游戏开发记录/">游戏开发记录</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/CSharp/" style="font-size: 10px;">CSharp</a> <a href="/tags/Unity文档/" style="font-size: 10px;">Unity文档</a> <a href="/tags/bug/" style="font-size: 13.33px;">bug</a> <a href="/tags/cocos/" style="font-size: 20px;">cocos</a> <a href="/tags/fault/" style="font-size: 10px;">fault</a> <a href="/tags/声之形/" style="font-size: 10px;">声之形</a> <a href="/tags/大护法/" style="font-size: 10px;">大护法</a> <a href="/tags/开发日记/" style="font-size: 10px;">开发日记</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/感想/" style="font-size: 16.67px;">感想</a> <a href="/tags/摘抄/" style="font-size: 10px;">摘抄</a> <a href="/tags/散文/" style="font-size: 10px;">散文</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/电影感想/" style="font-size: 10px;">电影感想</a> <a href="/tags/禅语/" style="font-size: 10px;">禅语</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="https://space.bilibili.com/298856/#/">黑夜镜子的哔哩哔哩</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.zhihu.com/people/hei-jing-79/activities">黑夜镜子的知乎</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 hyjzRef<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+	<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+	<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+	<script>
+		var theme = theme;
+		var gitment = new Gitment({
+			id: '我的游戏开发日记',
+			owner: 'hyjzRef',
+			repo: 'hyjzRef.github.io',
+			oauth: {
+				client_id: '870d090bab7ca29ba3d4',
+				client_secret: '58650389143036252121e7a9f2b3e3f50842bec2',
+			},
+		})
+		gitment.render('commentContainer')
+	</script>
+	
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
