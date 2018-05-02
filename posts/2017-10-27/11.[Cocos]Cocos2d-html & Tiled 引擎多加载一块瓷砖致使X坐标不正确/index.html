@@ -14,12 +14,12 @@
 <meta property="og:url" content="http://hyjzref.github.io/posts/2017-10-27/11.[Cocos]Cocos2d-html & Tiled 引擎多加载一块瓷砖致使X坐标不正确/index.html">
 <meta property="og:site_name" content="黑夜·镜子的博客">
 <meta property="og:description" content="记载一次在 Cocos2d-html 引擎中使用 Tiled 的 Bug 发现和解决。    这是我在 Tiled 中设计的图层：我想加载黑色框中的图像，但是我实际加载出来的是红色框中的图像。这看起来就像是 cocos2d-html 引擎在计算水平位置时多往右加了一个格子的位置 …然后这是在浏览器中的图像：好气啊">
-<meta property="og:image" content="http://img.hb.aicdn.com/5bce791b3a14dc82a4007931c32f9dbf622fcedd23e3ce-cuISZl_fw658">
-<meta property="og:updated_time" content="2018-04-20T10:00:32.521Z">
+<meta property="og:image" content="http://wx3.sinaimg.cn/mw690/005yElYNgy1fqx7ttne4tj30sp0hs0vl.jpg">
+<meta property="og:updated_time" content="2018-05-02T11:25:13.447Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Cocos]Cocos2d-html &amp; Tiled 引擎多加载一块瓷砖致使X坐标不正确">
 <meta name="twitter:description" content="记载一次在 Cocos2d-html 引擎中使用 Tiled 的 Bug 发现和解决。    这是我在 Tiled 中设计的图层：我想加载黑色框中的图像，但是我实际加载出来的是红色框中的图像。这看起来就像是 cocos2d-html 引擎在计算水平位置时多往右加了一个格子的位置 …然后这是在浏览器中的图像：好气啊">
-<meta name="twitter:image" content="http://img.hb.aicdn.com/5bce791b3a14dc82a4007931c32f9dbf622fcedd23e3ce-cuISZl_fw658">
+<meta name="twitter:image" content="http://wx3.sinaimg.cn/mw690/005yElYNgy1fqx7ttne4tj30sp0hs0vl.jpg">
     
 
     
@@ -76,8 +76,6 @@ var _hmt = _hmt || [];
                     <a class="main-nav-link" href="/categories">分类</a>
                 
                     <a class="main-nav-link" href="/tags">标签</a>
-                
-                    <a class="main-nav-link" href="/about">关于我</a>
                 
             </nav>
             
@@ -141,8 +139,6 @@ var _hmt = _hmt || [];
                     <td><a class="main-nav-link" href="/categories">分类</a></td>
                 
                     <td><a class="main-nav-link" href="/tags">标签</a></td>
-                
-                    <td><a class="main-nav-link" href="/about">关于我</a></td>
                 
                 <td>
                     
@@ -242,7 +238,7 @@ var _hmt = _hmt || [];
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p><img src="http://img.hb.aicdn.com/5bce791b3a14dc82a4007931c32f9dbf622fcedd23e3ce-cuISZl_fw658" alt=""><br>记载一次在 Cocos2d-html 引擎中使用 Tiled 的 Bug 发现和解决。  </p>
+            <p><img src="http://wx3.sinaimg.cn/mw690/005yElYNgy1fqx7ttne4tj30sp0hs0vl.jpg" alt=""><br>记载一次在 Cocos2d-html 引擎中使用 Tiled 的 Bug 发现和解决。  </p>
 <hr>
 <p>这是我在 Tiled 中设计的图层：<br><strong>我想加载黑色框中的图像，但是我实际加载出来的是红色框中的图像。</strong><br><img src="/img/cocos/img_3.png" alt="img"><br>这看起来就像是 cocos2d-html 引擎在计算水平位置时多往右加了一个格子的位置 …<br>然后这是在浏览器中的图像：<br>好气啊   </p>
 <h2 id=""><a href="#" class="headerlink" title="  "></a><img src="/img/cocos/img_4.png" alt="img">  </h2><a id="more"></a>愤怒地猜原因：<br>1.可能是图集过大导致的，试过多次将图集的大小减小但是这个问题依然存在。<br>2.我又猜测可能我所选择的压缩格式有问题，尝试选择 zlib、xml 都未能解决问题<br>3.最后在 cocos2d-html 引擎中发现这么一段代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// frameworks/cocos2d-html5/cocos2d/tilemap/CCTMXXMLParser.js</span></div><div class="line">parseXMLFile:<span class="function"><span class="keyword">function</span> (<span class="params">tmxFile, isXmlString</span>) </span>&#123;</div><div class="line">	...</div><div class="line">	var tileset = <span class="keyword">new</span> cc.TMXTilesetInfo();</div><div class="line">	<span class="keyword">var</span> tileset = <span class="keyword">new</span> cc.TMXTilesetInfo();</div><div class="line">	tileset.name = selTileset.getAttribute(<span class="string">'name'</span>) || <span class="string">""</span>;</div><div class="line">	<span class="comment">//TODO need fix</span></div><div class="line">	<span class="comment">//if(this._currentFirstGID === 0)&#123;</span></div><div class="line">	tileset.firstGid = <span class="built_in">parseInt</span>(selTileset.getAttribute(<span class="string">'firstgid'</span>)) || <span class="number">0</span>;</div><div class="line">	<span class="comment">//&#125;else&#123;</span></div><div class="line">	<span class="comment">//    tileset.firstGid = this._currentFirstGID;</span></div><div class="line">	<span class="comment">//    this._currentFirstGID = 0;</span></div><div class="line">	<span class="comment">//&#125;</span></div><div class="line">	...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -259,7 +255,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://hyjzref.github.io/posts/2017-10-27/11.[Cocos]Cocos2d-html & Tiled 引擎多加载一块瓷砖致使X坐标不正确/" data-id="cjg7t7qrl0001mok2qr2h35gg" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://hyjzref.github.io/posts/2017-10-27/11.[Cocos]Cocos2d-html & Tiled 引擎多加载一块瓷砖致使X坐标不正确/" data-id="cjg7tyubf0002h8k2tymz2z1u" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -358,10 +354,6 @@ var _hmt = _hmt || [];
 
     
     
-        <section id="comments">
-	<div id="commentContainer"></div>
-</section>
-    
 
 </section>
             
@@ -380,7 +372,7 @@ var _hmt = _hmt || [];
                             <a href="/posts/2018-03-29/15.[CSharp]常用数据结构总结/" class="thumbnail">
     
     
-        <span style="background-image:url(http://img.hb.aicdn.com/922704c35a1c5bfcaebc7d85ee50bcf8912ab62ff8d10-S61k60_fw658)" alt="[CSharp]常用数据结构总结" class="thumbnail-image"></span>
+        <span style="background-image:url(http://wx4.sinaimg.cn/mw690/005yElYNgy1fqx7tr2p32j30n90efq4v.jpg)" alt="[CSharp]常用数据结构总结" class="thumbnail-image"></span>
     
 </a>
 
@@ -399,7 +391,7 @@ var _hmt = _hmt || [];
                             <a href="/posts/2018-03-03/14.[Unity]Mesh相关类库文档自译/" class="thumbnail">
     
     
-        <span style="background-image:url(http://img.hb.aicdn.com/04d04e4e7306681354495a822f1659f88ae48990153210-Ww9jO3_fw658)" alt="[Unity]Mesh相关类库文档自译" class="thumbnail-image"></span>
+        <span style="background-image:url(http://wx1.sinaimg.cn/mw690/005yElYNgy1fqx7trma7xj30xv0l0goh.jpg)" alt="[Unity]Mesh相关类库文档自译" class="thumbnail-image"></span>
     
 </a>
 
@@ -418,7 +410,7 @@ var _hmt = _hmt || [];
                             <a href="/posts/2018-02-15/13.[年终总结]2017年年终总结/" class="thumbnail">
     
     
-        <span style="background-image:url(http://img.hb.aicdn.com/5a716ecdee1c3f64c468f48b4583c234ae2d7a43169985-SHH2Mm_fw658)" alt="[年终总结]2017年年终总结" class="thumbnail-image"></span>
+        <span style="background-image:url(http://wx3.sinaimg.cn/mw690/005yElYNgy1fqx7ts2g4dj30we0k3wgj.jpg)" alt="[年终总结]2017年年终总结" class="thumbnail-image"></span>
     
 </a>
 
@@ -456,7 +448,7 @@ var _hmt = _hmt || [];
                             <a href="/posts/2017-10-27/11.[Cocos]Cocos2d-html & Tiled 引擎多加载一块瓷砖致使X坐标不正确/" class="thumbnail">
     
     
-        <span style="background-image:url(http://img.hb.aicdn.com/5bce791b3a14dc82a4007931c32f9dbf622fcedd23e3ce-cuISZl_fw658)" alt="[Cocos]Cocos2d-html &amp; Tiled 引擎多加载一块瓷砖致使X坐标不正确" class="thumbnail-image"></span>
+        <span style="background-image:url(http://wx3.sinaimg.cn/mw690/005yElYNgy1fqx7ttne4tj30sp0hs0vl.jpg)" alt="[Cocos]Cocos2d-html &amp; Tiled 引擎多加载一块瓷砖致使X坐标不正确" class="thumbnail-image"></span>
     
 </a>
 
@@ -492,35 +484,6 @@ var _hmt = _hmt || [];
     </div>
 
     
-        
-    <div class="widget-wrap">
-        <h3 class="widget-title">标签云</h3>
-        <div class="widget tagcloud">
-            <a href="/tags/CSharp/" style="font-size: 10px;">CSharp</a> <a href="/tags/Unity文档/" style="font-size: 10px;">Unity文档</a> <a href="/tags/bug/" style="font-size: 13.33px;">bug</a> <a href="/tags/cocos/" style="font-size: 20px;">cocos</a> <a href="/tags/fault/" style="font-size: 10px;">fault</a> <a href="/tags/声之形/" style="font-size: 10px;">声之形</a> <a href="/tags/大护法/" style="font-size: 10px;">大护法</a> <a href="/tags/开发日记/" style="font-size: 10px;">开发日记</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/感想/" style="font-size: 16.67px;">感想</a> <a href="/tags/摘抄/" style="font-size: 10px;">摘抄</a> <a href="/tags/散文/" style="font-size: 10px;">散文</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/电影感想/" style="font-size: 10px;">电影感想</a> <a href="/tags/禅语/" style="font-size: 10px;">禅语</a>
-        </div>
-    </div>
-
-    
-        
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">链接</h3>
-        <div class="widget">
-            <ul>
-                
-                    <li>
-                        <a href="https://space.bilibili.com/298856/#/">黑夜镜子的哔哩哔哩</a>
-                    </li>
-                
-                    <li>
-                        <a href="https://www.zhihu.com/people/hei-jing-79/activities">黑夜镜子的知乎</a>
-                    </li>
-                
-            </ul>
-        </div>
-    </div>
-
-
-    
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
 
@@ -535,24 +498,6 @@ var _hmt = _hmt || [];
     </div>
 </footer>
         
-    
-	<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-	<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-	<script>
-		var theme = theme;
-		var gitment = new Gitment({
-			id: '[Cocos]Cocos2d-html &amp; Tiled 引擎多加载一块瓷砖致使X坐标不正确',
-			owner: 'hyjzRef',
-			repo: 'hyjzRef.github.io',
-			oauth: {
-				client_id: '870d090bab7ca29ba3d4',
-				client_secret: '58650389143036252121e7a9f2b3e3f50842bec2',
-			},
-		})
-		gitment.render('commentContainer')
-	</script>
-	
-
 
 
     
